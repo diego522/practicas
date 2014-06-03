@@ -1,0 +1,2013 @@
+2014/05/01 22:30:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in C:\xampp\htdocs\yii_14\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii_14\framework\web\CWebApplication.php(141): CWebApplication->runController('gii')
+#1 C:\xampp\htdocs\yii_14\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/practicas/?r=gii
+---
+2014/05/02 00:13:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by COMUNA_NOMBRE' at line 1. La sentencia SQL ejecutada fue: SELECT * FROM `comuna` `t` WHERE order by COMUNA_NOMBRE.
+in C:\xampp\htdocs\practicas\protected\views\empresa\_form.php (38)
+in C:\xampp\htdocs\practicas\protected\views\empresa\create.php (18)
+in C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php (74)
+2014/05/02 00:13:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by COMUNA_NOMBRE' at line 1. The SQL statement executed was: SELECT * FROM `comuna` `t` WHERE order by COMUNA_NOMBRE' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\practicas\protected\views\empresa\_form.php(38): CActiveRecord->findAll('order by COMUNA...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\practicas\protected\views\empresa\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php(74): CController->render('create', Array)
+#13 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): EmpresaController->actionCreate()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('empresa/create')
+#24 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#25 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/practicas/index.php/empresa/create/
+---
+2014/05/02 01:00:01 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('contactoEmpresa...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/contactoEmpresa/create/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/empresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+---
+2014/05/02 01:00:08 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('contactoEmpresa...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/contactoEmpresa/create/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+---
+2014/05/02 18:18:32 [error] [exception.CException] exception 'CException' with message 'Propiedad "Empresa"."id_planificacion" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id_planificacio...')
+#1 C:\xampp\htdocs\practicas\protected\views\empresa\view.php(36): CActiveRecord->__get('id_planificacio...')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php(59): CController->render('view', Array)
+#7 [internal function]: EmpresaController->actionView('1')
+#8 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('empresa/view/6a...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/practicas/index.php/empresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/empresa/admin/
+---
+2014/05/02 18:18:49 [error] [php] Undefined variable: modelAvance (C:\xampp\htdocs\practicas\protected\views\empresa\view.php:37)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): EmpresaController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): EmpresaController->renderPartial()
+#2 C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php(59): EmpresaController->render()
+#3 unknown(0): EmpresaController->actionView()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): EmpresaController->runAction()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): EmpresaController->filterAccessControl()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): EmpresaController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): EmpresaController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/empresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+in C:\xampp\htdocs\practicas\protected\views\empresa\view.php (37)
+in C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php (59)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/02 18:19:07 [error] [exception.CException] exception 'CException' with message '"name" o "value" deben especificarse para CDataColumn.' in C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php:78
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(376): CDataColumn->init()
+#1 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(334): CGridView->initColumns()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CGridView->init()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#4 C:\xampp\htdocs\practicas\protected\views\empresa\view.php(79): CBaseController->widget('zii.widgets.gri...', Array)
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#9 C:\xampp\htdocs\practicas\protected\controllers\EmpresaController.php(59): CController->render('view', Array)
+#10 [internal function]: EmpresaController->actionView('1')
+#11 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(EmpresaController), Array)
+#12 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(EmpresaController), Object(ReflectionMethod), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#22 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('empresa/view/6a...')
+#23 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#24 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/practicas/index.php/empresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+---
+2014/05/02 18:50:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\practicas\protected\controllers\ContactoEmpresaController.php:153
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\controllers\ContactoEmpresaController.php(52): ContactoEmpresaController->loadModel('1')
+#1 [internal function]: ContactoEmpresaController->actionView('1')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ContactoEmpresaController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ContactoEmpresaController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('contactoEmpresa...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/practicas/index.php/contactoEmpresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/empresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+---
+2014/05/02 18:51:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\practicas\protected\controllers\ContactoEmpresaController.php:153
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\controllers\ContactoEmpresaController.php(52): ContactoEmpresaController->loadModel('1')
+#1 [internal function]: ContactoEmpresaController->actionView('1')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ContactoEmpresaController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ContactoEmpresaController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('contactoEmpresa...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/practicas/index.php/contactoEmpresa/view/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+---
+2014/05/02 22:01:46 [error] [exception.CException] exception 'CException' with message 'Propiedad "PeriodoPractica"."campus" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('campus')
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('campus')
+#2 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(PeriodoPractica), 'campus')
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(PeriodoPractica), 'campus', Array)
+#4 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(PeriodoPractica), 'campus', Array)
+#5 C:\xampp\htdocs\practicas\protected\views\periodoPractica\_search.php(41): CActiveForm->textField(Object(PeriodoPractica), 'campus')
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\practicas\protected\views\periodoPractica\admin.php(40): CController->renderPartial('_search', Array)
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#14 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(128): CController->render('admin', Array)
+#15 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionAdmin()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#26 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#27 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/admin/
+HTTP_REFERER=http://localhost/practicas/index.php/
+---
+2014/05/02 22:17:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_tipo_estado' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `estado` `t` WHERE id_tipo_estado=:id.
+in C:\xampp\htdocs\practicas\protected\views\periodoPractica\admin.php (34)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (128)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/02 22:17:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_tipo_estado' in 'where clause'. The SQL statement executed was: SELECT * FROM `estado` `t` WHERE id_tipo_estado=:id' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\practicas\protected\views\periodoPractica\admin.php(34): CActiveRecord->findAll('id_tipo_estado=...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(128): CController->render('admin', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionAdmin()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/admin/
+---
+2014/05/02 23:02:50 [error] [exception.CException] exception 'CException' with message 'Propiedad "PeriodoPractica"."campus" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(159): CComponent->__set('campus', '2')
+#1 C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php(105): CActiveRecord->__set('campus', '2')
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1017): PeriodoPractica->beforeSave()
+#3 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#4 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(66): CActiveRecord->save()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionCreate()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/create/
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/create/
+---
+2014/05/02 23:31:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_tipo_estado' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `estado` `t` WHERE id_tipo_estado=1.
+in C:\xampp\htdocs\practicas\protected\views\periodoPractica\_form.php (71)
+in C:\xampp\htdocs\practicas\protected\views\periodoPractica\update.php (21)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (93)
+2014/05/02 23:31:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_tipo_estado' in 'where clause'. The SQL statement executed was: SELECT * FROM `estado` `t` WHERE id_tipo_estado=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\practicas\protected\views\periodoPractica\_form.php(71): CActiveRecord->findAll('id_tipo_estado=...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\practicas\protected\views\periodoPractica\update.php(21): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(93): CController->renderPartial('update', Array, false, true)
+#12 [internal function]: PeriodoPracticaController->actionUpdate('1')
+#13 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PeriodoPracticaController), Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PeriodoPracticaController), Object(ReflectionMethod), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#20 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#24 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#25 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/update/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/admin/
+---
+2014/05/03 03:30:20 [error] [php] include(Periodo.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php(173): spl_autoload_call()
+#1 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(60): obtienePeriodoActual()
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionPeriodosDisponibles()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PeriodoPracticaController->runAction()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PeriodoPracticaController->filterAccessControl()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): PeriodoPracticaController->runActionWithFilters()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PeriodoPracticaController->run()
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/periodoPractica/periodosDisponibles/
+in C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php (173)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (60)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/03 03:30:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2.
+in C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php (173)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (60)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/03 03:30:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. The SQL statement executed was: SELECT * FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php(173): CActiveRecord->findAll('NOW() between f...')
+#4 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(60): PeriodoPractica::obtienePeriodoActual()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionPeriodosDisponibles()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('periodosDisponi...')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:31:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'estado' in 'where clause'. La sentencia SQL ejecutada fue: SELECT * FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and id_campus_fk=2 and estado=2.
+in C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php (173)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (60)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/03 03:31:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'estado' in 'where clause'. The SQL statement executed was: SELECT * FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and id_campus_fk=2 and estado=2' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(395): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1416): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\practicas\protected\models\PeriodoPractica.php(173): CActiveRecord->findAll('NOW() between f...')
+#4 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(60): PeriodoPractica::obtienePeriodoActual()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionPeriodosDisponibles()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('periodosDisponi...')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:31:32 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. La sentencia SQL ejecutada fue: SELECT COUNT(*) FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2.
+in C:\xampp\htdocs\practicas\protected\views\periodoPractica\periodosDisponibles.php (67)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (68)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/03 03:31:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(432): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1546): CDbCommand->queryScalar()
+#2 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(107): CDataProvider->getData()
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(314): CBaseListView->init()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\xampp\htdocs\practicas\protected\views\periodoPractica\periodosDisponibles.php(67): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('periodosDisponi...', Array, true)
+#15 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(68): CController->render('periodosDisponi...', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionPeriodosDisponibles()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('periodosDisponi...')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:32:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() falló: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. La sentencia SQL ejecutada fue: SELECT COUNT(*) FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2.
+in C:\xampp\htdocs\practicas\protected\views\periodoPractica\periodosDisponibles.php (67)
+in C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php (68)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/03 03:32:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'campus' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `periodo_practica` `t` WHERE NOW() between fecha_apertura and fecha_cierre and campus=2 and estado=2' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(432): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1546): CDbCommand->queryScalar()
+#2 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(107): CDataProvider->getData()
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(314): CBaseListView->init()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\xampp\htdocs\practicas\protected\views\periodoPractica\periodosDisponibles.php(67): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('periodosDisponi...', Array, true)
+#15 C:\xampp\htdocs\practicas\protected\controllers\PeriodoPracticaController.php(68): CController->render('periodosDisponi...', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PeriodoPracticaController->actionPeriodosDisponibles()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('periodosDisponi...')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('periodoPractica...')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:33:48 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:34:09 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 03:34:32 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 23:00:48 [error] [exception.CException] exception 'CException' with message 'Propiedad "CupoPractica"."id_contacto_empresa" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id_contacto_emp...')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('id_contacto_emp...')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(316): CComponent->evaluateExpression('CHtml::normaliz...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(295): CButtonColumn->renderButton('postular', Array, 0, Object(CupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CButtonColumn->renderDataCellContent(0, Object(CupoPractica))
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#9 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#14 C:\xampp\htdocs\practicas\protected\views\cupoPractica\listadoCupos.php(67): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('listadoCupos', Array, true)
+#19 C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php(128): CController->render('listadoCupos', Array)
+#20 [internal function]: CupoPracticaController->actionListadoCupos('1')
+#21 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CupoPracticaController), Array)
+#22 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CupoPracticaController), Object(ReflectionMethod), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#30 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#32 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#33 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+HTTP_REFERER=http://localhost/practicas/index.php/periodoPractica/periodosDisponibles/
+---
+2014/05/03 23:15:23 [error] [exception.CException] exception 'CException' with message 'Propiedad "CupoPractica"."id_contacto_empresa" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id_contacto_emp...')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('id_contacto_emp...')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(316): CComponent->evaluateExpression('CHtml::normaliz...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(295): CButtonColumn->renderButton('postular', Array, 0, Object(CupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CButtonColumn->renderDataCellContent(0, Object(CupoPractica))
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#9 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#14 C:\xampp\htdocs\practicas\protected\views\cupoPractica\listadoCupos.php(67): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('listadoCupos', Array, true)
+#19 C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php(133): CController->render('listadoCupos', Array)
+#20 [internal function]: CupoPracticaController->actionListadoCupos('1')
+#21 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CupoPracticaController), Array)
+#22 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CupoPracticaController), Object(ReflectionMethod), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#30 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#32 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#33 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/04 04:28:54 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/in...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/inscribirCupo/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/04 04:29:53 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/in...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/inscribirCupo/6axkmXr-NM6PKNonfG-WBtquQbgECJbamSElFUuXbgU
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/18 22:08:18 [error] [system.db.CDbCommand] CDbCommand::execute() falló: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'id_cupo_practica_fk'. La sentencia SQL ejecutada fue: INSERT INTO `inscripcion_cupo_practica` (`confirmacion`, `notificado`, `id_cupo_practica_fk`, `id_postulacion_practica_fk`, `id_estado_fk`, `prioridad`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (99)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/18 22:08:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-1' for key 'id_cupo_practica_fk'. The SQL statement executed was: INSERT INTO `inscripcion_cupo_practica` (`confirmacion`, `notificado`, `id_cupo_practica_fk`, `id_postulacion_practica_fk`, `id_estado_fk`, `prioridad`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(99): CActiveRecord->save()
+#3 [internal function]: PostulacionAPracticaController->actionInscribirCupo('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/hc3EW0QckIAsNhlvrJJuCgLaOu3NxPsSsmSSFQeUxRc
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/18 22:44:30 [error] [system.db.CDbCommand] CDbCommand::fetch() falló: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. La sentencia SQL ejecutada fue: SELECT * FROM `inscripcion_cupo_practica` `t` WHERE id_postulacion_practica_fk=ipp and id_cupo_practica_fk=:icp LIMIT 1.
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (85)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/18 22:44:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `inscripcion_cupo_practica` `t` WHERE id_postulacion_practica_fk=ipp and id_cupo_practica_fk=:icp LIMIT 1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(414): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1297): CDbCommand->queryRow()
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1402): CActiveRecord->query(Object(CDbCriteria))
+#3 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(85): CActiveRecord->find('id_postulacion_...', Array)
+#4 [internal function]: PostulacionAPracticaController->actionInscribirCupo('1')
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/hc3EW0QckIAsNhlvrJJuCgLaOu3NxPsSsmSSFQeUxRc
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/18 22:44:51 [error] [exception.CHttpException.500] exception 'CHttpException' with message 'Éste cupo ya lo ha inscrito..' in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:106
+Stack trace:
+#0 [internal function]: PostulacionAPracticaController->actionInscribirCupo('1')
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/hc3EW0QckIAsNhlvrJJuCgLaOu3NxPsSsmSSFQeUxRc
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/18 23:03:30 [error] [exception.CHttpException.500] exception 'CHttpException' with message 'Éste cupo ya lo ha inscrito.' in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:106
+Stack trace:
+#0 [internal function]: PostulacionAPracticaController->actionInscribirCupo('1')
+#1 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/hc3EW0QckIAsNhlvrJJuCgLaOu3NxPsSsmSSFQeUxRc
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/19 00:25:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:1118
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/delete/NSL9PTKTxiyxCNlNa6T-ZYog53cesDsqiRToANciAok
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/V5bH0CJnS2xhy8dH_KKsxoYi8C9yAB8MZ2hDOfxoYsQ
+---
+2014/05/21 17:55:07 [error] [exception.CException] exception 'CException' with message 'Propiedad "CupoPractica"."id" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('id')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php(131): CComponent->evaluateExpression('CHtml::checkBox...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent(0, Object(CupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 C:\xampp\htdocs\practicas\protected\views\cupoPractica\listadoCupos.php(72): CBaseController->widget('zii.widgets.gri...', Array)
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('listadoCupos', Array, true)
+#18 C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php(131): CController->render('listadoCupos', Array)
+#19 [internal function]: CupoPracticaController->actionListadoCupos('1')
+#20 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CupoPracticaController), Array)
+#21 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CupoPracticaController), Object(ReflectionMethod), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#32 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#33 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/21 18:25:27 [error] [php] Undefined index: act (C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php:98)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CupoPracticaController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CupoPracticaController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CupoPracticaController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CupoPracticaController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/cupoPractica/inscribirCupo/
+in C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php (98)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/21 18:28:34 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/jL8vowCTzszms4u0-0foDCTvIRo2QdgchR8cqXWOcMg
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/21 18:29:23 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('inscribirCupo')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/inscribirCupo/jL8vowCTzszms4u0-0foDCTvIRo2QdgchR8cqXWOcMg
+---
+2014/05/21 18:31:09 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:1118
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/delete/PWaxjYMpOlwJwuOMdu-KDnTn0qIettSYMVsW6oSCTjA
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/8zHa337kQ7UrX7WVlGmkAOaEohqW5sUH576eR4Ov4Ps
+---
+2014/05/21 18:32:13 [error] [php] Undefined index: cupo-practica-grid_c5 (C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php:99)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CupoPracticaController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CupoPracticaController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CupoPracticaController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CupoPracticaController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/cupoPractica/inscribirCupo/
+in C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php (99)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/21 18:48:41 [error] [php] Undefined variable: modelInscripcionCupo (C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php:71)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): PostulacionAPracticaController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): PostulacionAPracticaController->renderPartial()
+#2 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(53): PostulacionAPracticaController->render()
+#3 unknown(0): PostulacionAPracticaController->actionView()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php (71)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (53)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/21 18:49:51 [error] [exception.CException] exception 'CException' with message 'Propiedad "InscripcionCupoPractica"."Prioridad" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('Prioridad')
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('Prioridad')
+#2 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(InscripcionCupoPractica), 'Prioridad')
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(InscripcionCupoPractica), 'Prioridad', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php(97): CHtml::activeTextField(Object(InscripcionCupoPractica), 'Prioridad', Array)
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(109): CDataColumn->renderFilterCellContent()
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(505): CGridColumn->renderFilterCell()
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(483): CGridView->renderFilter()
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(453): CGridView->renderTableHeader()
+#9 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#14 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(88): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#19 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(54): CController->render('view', Array)
+#20 [internal function]: PostulacionAPracticaController->actionView('5')
+#21 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#22 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#30 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#32 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#33 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 18:50:39 [error] [exception.CException] exception 'CException' with message 'Propiedad "InscripcionCupoPractica"."menuId" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('menuId')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('menuId')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php(131): CComponent->evaluateExpression('CHtml::textFiel...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent(0, Object(InscripcionCupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(88): CBaseController->widget('zii.widgets.gri...', Array)
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#18 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(54): CController->render('view', Array)
+#19 [internal function]: PostulacionAPracticaController->actionView('5')
+#20 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#21 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#32 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#33 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 18:50:58 [error] [exception.CException] exception 'CException' with message 'Propiedad "InscripcionCupoPractica"."priorirdad" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('priorirdad')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('priorirdad')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php(131): CComponent->evaluateExpression('CHtml::textFiel...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent(0, Object(InscripcionCupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(88): CBaseController->widget('zii.widgets.gri...', Array)
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#18 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(54): CController->render('view', Array)
+#19 [internal function]: PostulacionAPracticaController->actionView('5')
+#20 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#21 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#22 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#23 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#32 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#33 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 21:51:09 [error] [exception.CException] exception 'CException' with message 'CupoPracticaController tiene una llamada extra a endWidget() en su vista.' in C:\xampp\htdocs\yii\framework\web\CBaseController.php:210
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\views\cupoPractica\listadoCupos.php(90): CBaseController->endWidget()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('listadoCupos', Array, true)
+#5 C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php(142): CController->render('listadoCupos', Array)
+#6 [internal function]: CupoPracticaController->actionListadoCupos('1')
+#7 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(CupoPracticaController), Array)
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(CupoPracticaController), Object(ReflectionMethod), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('listadoCupos')
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/li...')
+#19 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/listadoCupos/-fNswvTdq6n6KyhyYHkBBz0GKbSD0k-gJZwrfgH73SE
+---
+2014/05/21 22:07:40 [error] [exception.CException] exception 'CException' with message 'CupoPracticaController contiene etiquetas de widget en la vista "C:\xampp\htdocs\practicas\protected\views\cupoPractica\_form.php" anidados incorrectamente. CJuiDialog widget no contiene la llamada a endWidget().' in C:\xampp\htdocs\yii\framework\web\CBaseController.php:101
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#1 C:\xampp\htdocs\practicas\protected\views\cupoPractica\create.php(15): CController->renderPartial('_form', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#6 C:\xampp\htdocs\practicas\protected\controllers\CupoPracticaController.php(73): CController->render('create', Array)
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): CupoPracticaController->actionCreate()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cupoPractica/cr...')
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/practicas/index.php/cupoPractica/create/
+HTTP_REFERER=http://localhost/practicas/index.php/cupoPractica/admin/
+---
+2014/05/21 22:31:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:224
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(178): PostulacionAPracticaController->loadModel('15')
+#1 [internal function]: PostulacionAPracticaController->actionDelete('15')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1116): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/delete/V0uBjgjfiUt0nH7QIceGRi98wx6K8QhihkoGSw7r3oY?ajax=menu-grid
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 22:33:03 [error] [exception.CException] exception 'CException' with message 'Propiedad "InscripcionCupoPractica"."id_cupo_practica" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id_cupo_practic...')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('id_cupo_practic...')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(316): CComponent->evaluateExpression('CHtml::normaliz...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(295): CButtonColumn->renderButton('delete', Array, 0, Object(InscripcionCupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CButtonColumn->renderDataCellContent(0, Object(InscripcionCupoPractica))
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#9 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#14 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(82): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#19 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(55): CController->render('view', Array)
+#20 [internal function]: PostulacionAPracticaController->actionView('5')
+#21 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#22 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#30 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#32 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#33 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 22:33:51 [error] [exception.CException] exception 'CException' with message 'Propiedad "InscripcionCupoPractica"."id_inscripcion_practica_fk" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('id_inscripcion_...')
+#1 C:\xampp\htdocs\yii\framework\base\CComponent.php(606) : eval()'d code(1): CActiveRecord->__get('id_inscripcion_...')
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(606): eval()
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(316): CComponent->evaluateExpression('CHtml::normaliz...', Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CButtonColumn.php(295): CButtonColumn->renderButton('delete', Array, 0, Object(InscripcionCupoPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CButtonColumn->renderDataCellContent(0, Object(InscripcionCupoPractica))
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#9 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#14 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(82): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#16 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#19 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(55): CController->render('view', Array)
+#20 [internal function]: PostulacionAPracticaController->actionView('5')
+#21 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#22 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#24 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#28 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#29 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#30 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#31 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#32 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#33 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#34 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#35 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/21 22:34:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'No es posible resolver la solicitud "inscripcionCupoPractica/delete/tEM3rxklt_DmRTCBIdNjOCOixFPUHleZ9R5zqVUL0sM"' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('inscripcionCupo...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/practicas/index.php/inscripcionCupoPractica/delete/tEM3rxklt_DmRTCBIdNjOCOixFPUHleZ9R5zqVUL0sM?ajax=menu-grid
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 00:10:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "eliminaCupoInscrito" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('eliminaCupoInsc...')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('eliminaCupoInsc...')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/eliminaCupoInscrito/tEM3rxklt_DmRTCBIdNjOCOixFPUHleZ9R5zqVUL0sM?ajax=menu-grid
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 00:11:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "eliminaCupoInscrito" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('eliminaCupoInsc...')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('eliminaCupoInsc...')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/eliminaCupoInscrito/tEM3rxklt_DmRTCBIdNjOCOixFPUHleZ9R5zqVUL0sM?ajax=menu-grid
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 00:11:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "eliminaCupoInscrito" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('eliminaCupoInsc...')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('eliminaCupoInsc...')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/eliminaCupoInscrito/tEM3rxklt_DmRTCBIdNjOCOixFPUHleZ9R5zqVUL0sM?ajax=menu-grid
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 00:47:55 [error] [exception.CException] exception 'CException' with message 'Propiedad "PostulacionAPractica"."adjunto" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('adjunto')
+#1 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(52): CActiveRecord->__get('adjunto')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(55): CController->render('view', Array)
+#7 [internal function]: PostulacionAPracticaController->actionView('5')
+#8 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PostulacionAPracticaController), Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostulacionAPracticaController), Object(ReflectionMethod), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/
+---
+2014/05/22 01:02:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "subirAdjunto" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('subirAdjunto')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 01:02:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'El sistema no ha podido encontrar la acción "subirAdjunto" solicitada.' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('subirAdjunto')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/22 01:03:29 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/22 01:04:36 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/22 01:05:10 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/22 01:06:02 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:98)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(153): renderAttributes()
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(449): tag()
+#2 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(484): button()
+#3 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php(55): submitButton()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): PostulacionAPracticaController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): PostulacionAPracticaController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): PostulacionAPracticaController->renderPartial()
+#8 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(104): PostulacionAPracticaController->render()
+#9 unknown(0): PostulacionAPracticaController->actionView()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#16 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#17 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\view.php (55)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (104)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:26:04 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/24 21:26:06 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/24 21:26:17 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/
+---
+2014/05/24 21:27:00 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:27:58 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:43:12 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:43:19 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:45:06 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:49)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (49)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:46:10 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:46:19 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:47:41 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:51:35 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 21:56:36 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/view/subirAdjunto
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/24 22:02:59 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/24 22:05:29 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Su solicitud es inválida.' in C:\xampp\htdocs\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('subirAdjunto')
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#10 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/
+HTTP_REFERER=http://localhost/practicas/index.php/postulacionAPractica/view/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+---
+2014/05/24 22:08:03 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:08:37 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php/postulacionAPractica/subirAdjunto/HPHTDcEXKbJ4mxpb7lNA6XW9UTcAC1Y0Z9rr-puEh4o
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:10:13 [error] [php] Attempt to assign property of non-object (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:50)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/subirAdjunto&id=5
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:10:48 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:11:58 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:17:24 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:20:26 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:23:38 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:25:27 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:26:06 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:27:52 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:34:48 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (50)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/24 22:35:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('download')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/download&id=1
+HTTP_REFERER=http://localhost/practicas/index.php?r=postulacionAPractica/subirAdjunto&id=5
+---
+2014/05/24 23:04:51 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (51)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/25 00:12:08 [warning] [application] Error al definir unsafe el atributo "id_adjunto_fk" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (51)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 17:28:51 [error] [exception.CException] exception 'CException' with message 'PostulacionAPracticaController y sus behaviors no tienen un método o closure llamado "gridUrlCurriculum".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:265
+Stack trace:
+#0 [internal function]: CComponent->__call('gridUrlCurricul...', Array)
+#1 [internal function]: PostulacionAPracticaController->gridUrlCurriculum(Object(PostulacionAPractica), 0, Object(CDataColumn))
+#2 C:\xampp\htdocs\yii\framework\base\CComponent.php(611): call_user_func_array(Array, Array)
+#3 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CDataColumn.php(131): CComponent->evaluateExpression(Array, Array)
+#4 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridColumn.php(144): CDataColumn->renderDataCellContent(0, Object(PostulacionAPractica))
+#5 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(589): CGridColumn->renderDataCell(0)
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(545): CGridView->renderTableRow(0)
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(455): CGridView->renderTableBody()
+#8 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(160): CGridView->renderItems()
+#9 [internal function]: CBaseListView->renderSection(Array)
+#10 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#11 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(128): CBaseListView->renderContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(173): CBaseListView->run()
+#13 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php(77): CBaseController->widget('zii.widgets.gri...', Array)
+#14 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#15 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#18 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(308): CController->render('admin', Array)
+#19 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostulacionAPracticaController->actionAdmin()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#24 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#25 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#26 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#27 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#28 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#29 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#30 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#31 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#32 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/admin
+HTTP_REFERER=http://localhost/practicas/index.php
+---
+2014/05/29 17:45:45 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'Usted no se encuentra autorizado a realizar esta acción.' in C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php:179
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CAccessControlFilter.php(142): CAccessControlFilter->accessDenied(Object(WebUser), 'Usted no se enc...')
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('evaluar')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/evaluar&id=5
+HTTP_REFERER=http://localhost/practicas/index.php?r=postulacionAPractica/admin
+---
+2014/05/29 17:57:58 [error] [php] Missing argument 2 for CHtml::listData(), called in C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php on line 45 and defined (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:1836)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): PostulacionAPracticaController->renderInternal()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(869): PostulacionAPracticaController->renderFile()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(782): PostulacionAPracticaController->renderPartial()
+#3 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(327): PostulacionAPracticaController->render()
+#4 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostulacionAPracticaController->actionAdmin()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#10 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/admin
+in C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php (45)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 17:59:55 [error] [exception.CException] exception 'CException' with message 'Propiedad "PostulacionAPractica"."financiado" no se encuentra definida.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('financiado')
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('financiado')
+#2 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1565): CHtml::resolveValue(Object(PostulacionAPractica), 'financiado')
+#3 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php(49): CHtml::activeDropDownList(Object(PostulacionAPractica), 'financiado', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#8 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(327): CController->render('admin', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostulacionAPracticaController->actionAdmin()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#14 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/admin
+---
+2014/05/29 18:00:48 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (323)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:03:29 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (323)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:03:32 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (323)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:32:28 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:32:28 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:43:47 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:43:47 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:43:50 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:43:50 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:49:13 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:49:13 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:49:17 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:49:17 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:49:19 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:49:19 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:49:38 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (197)
+in C:\xampp\htdocs\practicas\protected\components\ERememberFiltersBehavior.php (206)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (327)
+2014/05/29 18:49:38 [warning] [application] Error al definir unsafe el atributo "filtro_evaluacion" de "PostulacionAPractica".
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (330)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:51:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() falló: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND (id_alumno in (select id_usuario from usuario where campus=2))' at line 1. La sentencia SQL ejecutada fue: SELECT COUNT(*) FROM `postulacion_a_practica` `t` WHERE (filtro_evaluacion=) AND (id_alumno in (select id_usuario from usuario where campus=2)).
+in C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php (92)
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (334)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/29 18:51:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand falló al ejecutar la sentencia SQL: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') AND (id_alumno in (select id_usuario from usuario where campus=2))' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `postulacion_a_practica` `t` WHERE (filtro_evaluacion=) AND (id_alumno in (select id_usuario from usuario where campus=2))' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:541
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(432): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1546): CDbCommand->queryScalar()
+#2 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(179): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(129): CDataProvider->getTotalItemCount()
+#5 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(107): CDataProvider->getData()
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(314): CBaseListView->init()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\xampp\htdocs\practicas\protected\views\postulacionAPractica\admin.php(92): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#15 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(334): CController->render('admin', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostulacionAPracticaController->actionAdmin()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#29 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica%2Fadmin&PostulacionAPractica%5Bid_periodo_practica_fk%5D=&PostulacionAPractica%5Bid_estado_fk%5D=&PostulacionAPractica%5Bfiltro_evaluacion%5D=&PostulacionAPractica_page=1&ajax=postulacion-apractica-grid
+HTTP_REFERER=http://localhost/practicas/index.php?r=postulacionAPractica/admin
+---
+2014/05/31 23:52:44 [error] [exception.Swift_TransportException] exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "portalactividadtitulacionubb@gmail.com" using 2 possible authenticators' in C:\xampp\htdocs\practicas\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\Esmtp\AuthHandler.php:184
+Stack trace:
+#0 C:\xampp\htdocs\practicas\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\EsmtpTransport.php(312): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 C:\xampp\htdocs\practicas\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Transport\AbstractSmtpTransport.php(120): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 C:\xampp\htdocs\practicas\protected\extensions\yii-mail\vendors\swiftMailer\classes\Swift\Mailer.php(80): Swift_Transport_AbstractSmtpTransport->start()
+#3 C:\xampp\htdocs\practicas\protected\extensions\yii-mail\YiiMail.php(133): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(479): YiiMail->send(Object(YiiMailMessage))
+#5 C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php(101): PostulacionAPracticaController->SendMail('Asignaci??n de ...', '?              ...', Array)
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): PostulacionAPracticaController->actionAsignarPracticas()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('asignarPractica...')
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('postulacionAPra...')
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\practicas\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/asignarPracticas
+HTTP_REFERER=http://localhost/practicas/index.php?r=postulacionAPractica/admin
+---
+2014/05/31 23:53:16 [error] [php] Undefined index: PostulacionAPractica (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:66)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica/asignarPracticas
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (66)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/31 23:57:38 [error] [php] Undefined index: PostulacionAPractica (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:66)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica%2FasignarPracticas&PostulacionAPractica%5Bid_periodo_practica_fk%5D=&PostulacionAPractica%5Bid_estado_fk%5D=&PostulacionAPractica%5Bfiltro_evaluacion%5D=0&PostulacionAPractica_page=1&ajax=postulacion-apractica-grid
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (66)
+in C:\xampp\htdocs\practicas\index.php (13)
+2014/05/31 23:57:43 [error] [php] Undefined index: PostulacionAPractica (C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php:66)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): PostulacionAPracticaController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): PostulacionAPracticaController->filterAccessControl()
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): PostulacionAPracticaController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): PostulacionAPracticaController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\practicas\index.php(13): CWebApplication->run()
+REQUEST_URI=/practicas/index.php?r=postulacionAPractica%2FasignarPracticas&PostulacionAPractica%5Bid_periodo_practica_fk%5D=&PostulacionAPractica%5Bid_estado_fk%5D=&PostulacionAPractica%5Bfiltro_evaluacion%5D=&PostulacionAPractica_page=1&ajax=postulacion-apractica-grid
+in C:\xampp\htdocs\practicas\protected\controllers\PostulacionAPracticaController.php (66)
+in C:\xampp\htdocs\practicas\index.php (13)
