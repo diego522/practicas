@@ -25,11 +25,11 @@ $this->menu = array(
     ?>
     <div class="row">
         <?php echo $form->labelEx($model, 'Seleccione Periodo'); ?>
-        <?php echo $form->dropDownList($model, 'id_periodo_practica_fk',CHtml::listData(PeriodoPractica::model()->findAll('id_campus_fk=' . Yii::app()->user->getState('campus')), 'id_periodo_practica', 'nombre_mas_estado')); ?>
+        <?php echo $form->dropDownList($model, 'id_periodo_practica_fk', CHtml::listData(PeriodoPractica::model()->findAll('id_campus_fk=' . Yii::app()->user->getState('campus')), 'id_periodo_practica', 'nombre_mas_estado'), array('empty' => "Seleccione")); ?>
         <?php echo $form->error($model, 'id_periodo_practica_fk'); ?>
     </div>
     <div class="row buttons">
-        <?php echo CHtml::button('Asignar Prácticas', array('submit' => array('asignarPracticas')));?>
+        <?php echo CHtml::button('Asignar Prácticas', array('submit' => array('asignarPracticas'))); ?>
     </div>
 
     <?php $this->endWidget(); ?>
@@ -61,6 +61,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'filter' => false,
             'type' => 'raw',
             'value' => array($this, 'gridUrlCurriculum')),
+        array('header' => "Centro de Práctica",
+            'filter' => CHtml::activeDropDownList($model, 'filtro_lugar_practica', CHtml::listData(Empresa::model()->findAll($model->id_periodo_practica_fk != NULL && $model->id_periodo_practica_fk != 'campus=' . Yii::app()->user->getState('campus') ? 'campus=' . Yii::app()->user->getState('campus') . ' and id_empresa in (select id_empresa_fk from cupo_practica where id_periodo_practica_fk=' . $model->id_periodo_practica_fk . ')' : '' ), 'id_empresa', 'nombre_mas_ciudad'), array('empty' => '')),
+            'type' => 'raw',
+            'value' => array($this, 'gridFiltroCentroPractica')),
         array('header' => "Evaluación",
             'filter' => CHtml::activeDropDownList($model, 'filtro_evaluacion', array(
                 '' => '',
@@ -81,7 +85,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
          */
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view} {update} {delete} {evaluar}',
+            'template' => '{view} {evaluar}',
             'buttons' => array(
                 'view' => array(
                     'label' => 'Ver',
@@ -89,17 +93,17 @@ $this->widget('zii.widgets.grid.CGridView', array(
                     'options' => array('id' => 'inline'),
                     'imageUrl' => Yii::app()->request->baseUrl . '/images/ver_icon.png',
                 ),
-                'update' => array(
-                    'label' => 'Editar',
-                    //'url' => "CHtml::normalizeUrl(array('update', 'id'=>\$data->id_propuesta))",
-                    'options' => array('id' => 'inline'),
-                    'imageUrl' => Yii::app()->request->baseUrl . '/images/edit_icon.png',
-                ),
-                'delete' => array(
-                    'label' => 'Borrar',
-                    // 'url' => "CHtml::normalizeUrl(array('delete', 'id'=>\$data->id_propuesta))",
-                    'imageUrl' => Yii::app()->request->baseUrl . '/images/delete_icon.png',
-                ),
+//                'update' => array(
+//                    'label' => 'Editar',
+//                    //'url' => "CHtml::normalizeUrl(array('update', 'id'=>\$data->id_propuesta))",
+//                    'options' => array('id' => 'inline'),
+//                    'imageUrl' => Yii::app()->request->baseUrl . '/images/edit_icon.png',
+//                ),
+//                'delete' => array(
+//                    'label' => 'Borrar',
+//                    // 'url' => "CHtml::normalizeUrl(array('delete', 'id'=>\$data->id_propuesta))",
+//                    'imageUrl' => Yii::app()->request->baseUrl . '/images/delete_icon.png',
+//                ),
                 'evaluar' => array(
                     'label' => 'Evaluar',
                     'url' => "CHtml::normalizeUrl(array('evaluar', 'id'=>\$data->id_inscripcion_practica))",

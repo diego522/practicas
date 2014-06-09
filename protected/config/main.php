@@ -149,5 +149,6 @@ return array(
         'adminEmail' => 'webmaster@example.com',
         'ruta_adjunto' => 'adjuntos/',
         'ruta_curriculum' => 'curriculums/',
+        'urlWebService' => 'http://arrau.chillan.ubiobio.cl/sistemaici/webservice/index.php?r=webService/ws',
     ),
 );

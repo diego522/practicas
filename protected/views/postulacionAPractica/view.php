@@ -39,55 +39,62 @@ $this->widget('zii.widgets.CDetailView', array(
 ?>
 
 
-<?php
-$form = $this->beginWidget('CActiveForm', array(
-    //'enableAjaxValidation' => true,
-    'id' => 'formCurriculum',
-    'htmlOptions' => array('enctype' => 'multipart/form-data'),
-        ));
-?>
-<div id='AjFlash' class="flash-success" style="display:none"></div>
-<div class="form" >
-    <table>
-        <tr>
-            <td width="350px"><div class="row">
-                    <?php echo $form->labelEx($model, 'Curriculum'); ?>
-                    <?php echo $form->fileField($model, 'id_adjunto_fk'); ?> 
-                    <?php echo $form->error($model, 'id_adjunto_fk'); ?></div>
-            </td>
-            <td width="90px"><div id="link_descarga"><?php
-                    if (isset($model->id_adjunto_fk)) {
-                        echo CHtml::link('Descargar', array('download', 'id' => $model->id_adjunto_fk,));
-                    }
-                    ?></div></td>
-            <td>
-                <div class="row buttons">
-                    <?php
+    <?php
+    $form = $this->beginWidget('CActiveForm', array(
+        //'enableAjaxValidation' => true,
+        'id' => 'formCurriculum',
+        'htmlOptions' => array('enctype' => 'multipart/form-data'),
+    ));
+    ?>
+    <div id='AjFlash' class="flash-success" style="display:none"></div>
+    <div class="form" >
+        <table>
+            <tr>
+                <td width="350px">
+                    <div class="row">
+                        <?php echo $form->labelEx($model, 'Curriculum'); ?>
+                        <?php if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) { ?>
+                            <?php echo $form->fileField($model, 'id_adjunto_fk'); ?> 
+                        <?php } ?>
+                        <?php echo $form->error($model, 'id_adjunto_fk'); ?></div>
+                </td>
+                <td width="90px"><div id="link_descarga"><?php
+                        if (isset($model->id_adjunto_fk)) {
+                            echo CHtml::link('Descargar', array('download', 'id' => $model->id_adjunto_fk,));
+                        }
+                        ?></div></td>
+                <td>
+                    <?php if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) { ?>
+                        <div class="row buttons">
+                            <?php
 //                    echo CHtml::ajaxSubmitButton('Subir Curriculum', CHtml::normalizeUrl(array('postulacionAPractica/subirAdjunto', 'id' => $model->id_inscripcion_practica)), array(
 //                        'data' => 'js:$("#formCurriculum").serialize()',
 //                        'type'=>'POST',
 //                        'success' => 'function(data){
 //                          $("#link_descarga").html(data);
 //                   }'));
-                    echo CHtml::button('Subir Curriculum', array('submit' => array('postulacionAPractica/subirAdjunto', 'id' => $model->id_inscripcion_practica)));
-                    ?>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td><div class="row">
-                    <?php echo $form->labelEx($model, 'Postulación'); ?>
-                    <div class="buttons">
-                        <?php
-                        echo CHtml::ajaxSubmitButton('Enviar Postulación', array('enviarPostulacion', 'id' => $model->id_inscripcion_practica), array('success' => 'reloadFlash'));
-                        ?>
-                    </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-
+                            echo CHtml::button('Subir Curriculum', array('submit' => array('postulacionAPractica/subirAdjunto', 'id' => $model->id_inscripcion_practica)));
+                            ?>
+                        </div>
+                    <?php } ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <?php if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) { ?>
+                        <div class="row">
+                            <?php echo $form->labelEx($model, 'Postulación'); ?>
+                            <div class="buttons">
+                                <?php
+                                echo CHtml::ajaxSubmitButton('Enviar Postulación', array('enviarPostulacion', 'id' => $model->id_inscripcion_practica), array('success' => 'reloadFlash'));
+                                ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </td>
+            </tr>
+        </table>
+    </div>
 <h3>Cupos Inscritos</h3>
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
@@ -107,7 +114,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => 'CHtml::textField("cupoInscrito[$data->id_inscripcion_practica]",$data->prioridad,array("style"=>"width:50px;"))',
             'htmlOptions' => array("width" => "50px"),
         ),
-        
         array(
             'class' => 'CButtonColumn',
             'template' => '{view} {delete}',
@@ -155,11 +161,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
         $('#AjFlash').html(data).fadeIn().animate({opacity: 1.0}, 5000).fadeOut('slow');
     }
 </script>
+<?php if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) { ?>
 <div class="form" align="center">
     <div class="row buttons">
         <?php echo CHtml::ajaxSubmitButton('Actualizar Prioridades', array('ajaxUpdatePrioridad', 'act' => 'doSortOrder'), array('success' => 'reloadGrid')); ?>
     </div>
 </div>
+<?php }?>
 <?php $this->endWidget(); ?>
 <?php
 $this->widget('application.extensions.fancybox.EFancyBox', array(

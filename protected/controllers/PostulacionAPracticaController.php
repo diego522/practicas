@@ -26,7 +26,7 @@ class PostulacionAPracticaController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view', 'inscribirCupo', 'ajaxUpdatePrioridad', 'eliminaCupoInscrito', 'subirAdjunto', 'Download', 'enviarPostulacion'),
+                'actions' => array('index', 'view', 'inscribirCupo', 'confirmar', 'rechazar', 'ajaxUpdatePrioridad', 'eliminaCupoInscrito', 'subirAdjunto', 'Download', 'enviarPostulacion'),
                 'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -77,18 +77,18 @@ class PostulacionAPracticaController extends Controller {
                         $contador++;
                     }
                 }
-              //  echo " contador_evaluaciones "+$contador;
+                //  echo " contador_evaluaciones "+$contador;
                 if ($contador == count($listaPostulaciones)) {//todas las postulaciones evaluadas
-                //    echo " if_true ";
+                    //    echo " if_true ";
                     foreach ($listaPostulaciones as $l) {//recorrer todas las postulaciones
                         //traer cada una de las inscripciones en cada postulacion
                         //echo " foreach_postulaciones ";
                         if ($l->id_estado_fk == Estado::$POSTULACION_PRACTICA_ENVIADA) {
-                         //   echo " if_true_postulacion_enviada ";
+                            //   echo " if_true_postulacion_enviada ";
                             $listaInscripciones = InscripcionCupoPractica::model()->findAll('id_postulacion_practica_fk=:id order by prioridad ASC', array(':id' => $l->id_inscripcion_practica));
                             $cupoAsignado = FALSE;
                             foreach ($listaInscripciones as $i) {
-                           //     echo " foreach_inscrpciones ";
+                                //     echo " foreach_inscrpciones ";
                                 //Por cada inscripcion ver si es posible asignarla
                                 $contadorAsignadosPrevios = 0;
                                 foreach ($i->idCupoPracticaFk->inscripcionCupoPracticas as $ic) {
@@ -96,8 +96,8 @@ class PostulacionAPracticaController extends Controller {
                                         $contadorAsignadosPrevios++;
                                     }
                                 }
-                             //   echo "contador "+$contadorAsignadosPrevios;
-                              //  echo " cantidad "+$i->idCupoPracticaFk->cantidad;
+                                //   echo "contador "+$contadorAsignadosPrevios;
+                                //  echo " cantidad "+$i->idCupoPracticaFk->cantidad;
                                 if ($contadorAsignadosPrevios < $i->idCupoPracticaFk->cantidad) {
                                     //hay cupos dosponibles se asigna el cupo 
                                     $i->id_estado_fk = Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION;
@@ -152,8 +152,8 @@ class PostulacionAPracticaController extends Controller {
         }
         $model->scenario = 'search';
 //        $this->render('admin', array(
-         //   'model' => $model,
-       // ));
+        //   'model' => $model,
+        // ));
     }
 
     /**
@@ -198,16 +198,83 @@ class PostulacionAPracticaController extends Controller {
         //$this->actionView($id);
     }
 
+    public function actionConfirmar($id) {
+        $model = $this->loadModel($id);
+        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION && Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO))) {
+            //renderizar pantalla de confirmación
+            foreach ($model->inscripcionCupoPracticas as $i) {
+                if ($i->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION) {
+                    //$modelCupo = $i->idCupoPracticaFk;
+                    $model->id_estado_fk = Estado::$POSTULACION_PRACTICA_ASIGNADA;
+                    $i->id_estado_fk = Estado::$POSTULACION_CUPO_ASIGNADO;
+                    $model->save();
+                    $i->save();
+                    //creación de la práctica profesional
+                    //+++++++++++++++++++++++++++++++++++++
+                    //+++++++++++++++++++++++++++++++++++++
+                    Yii::app()->user->setFlash('success', 'Práctica profesional creada correctamente');
+                    break;
+                }
+            }
+        } else {
+            Yii::app()->user->setFlash('error', 'La postulación no puede ser confirmada');
+            //$this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
+        }
+        $this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
+    }
+
+    public function actionRechazar($id) {
+        $model = $this->loadModel($id);
+        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION && Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO))) {
+            //renderizar pantalla de confirmación
+            foreach ($model->inscripcionCupoPracticas as $i) {
+                if ($i->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION) {
+                    $model->id_estado_fk = Estado::$POSTULACION_PRACTICA_RECHAZADO;
+                    $i->id_estado_fk = Estado::$POSTULACION_CUPO_RECHAZADO;
+                    $model->save();
+                    $i->save();
+                    //creación de la práctica profesional
+                    //+++++++++++++++++++++++++++++++++++++
+                    //+++++++++++++++++++++++++++++++++++++
+                    Yii::app()->user->setFlash('success', 'Práctica profesional ha sido rechazada correctamente');
+                    break;
+                }
+            }
+        } else {
+            Yii::app()->user->setFlash('error', 'La postulación no puede ser rechazada');
+            //$this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
+        }
+        $this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
+    }
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
         $this->layout = '//layouts/column1';
-        $this->render('view', array(
-            'model' => $this->loadModel($id),
-            'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
-        ));
+        $model = $this->loadModel($id);
+        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION && Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO))) {
+            //renderizar pantalla de confirmación
+            $modelCupo = NULL;
+            foreach ($model->inscripcionCupoPracticas as $i) {
+                if ($i->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION) {
+                    $modelCupo = $i->idCupoPracticaFk;
+                    break;
+                }
+            }
+            $this->render('confirmacionCupo', array(
+                'model' => $model,
+                'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+                'modelCupo' => $modelCupo,
+                    //'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+            ));
+        } else {
+            $this->render('view', array(
+                'model' => $model,
+                'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+            ));
+        }
     }
 
     public function actionEliminaCupoInscrito($idc, $idp) {
@@ -270,29 +337,33 @@ class PostulacionAPracticaController extends Controller {
                 }
             } else {
                 //posee postulación anterior para el periodo seleccionado
-                $inscripcionPrevia = InscripcionCupoPractica::model()->find('id_postulacion_practica_fk=:ipp and id_cupo_practica_fk=:icp', array(':ipp' => $postulacion->id_inscripcion_practica, ':icp' => $cupo->id_cupo_practica));
-                if ($inscripcionPrevia == null) {
-                    $inscripcion = new InscripcionCupoPractica();
-                    $inscripcion->id_cupo_practica_fk = $cupo->id_cupo_practica;
-                    //se pasa la id de la postulacion
-                    $inscripcion->id_postulacion_practica_fk = $postulacion->id_inscripcion_practica;
-                    $inscripcion->id_estado_fk = Estado::$POSTULACION_CUPO_INSCRITO;
-                    //calculo de la siguiente prioridad
-                    $max = 1;
-                    foreach ($postulacion->inscripcionCupoPracticas as $i) {
-                        if ($i->prioridad >= $max) {
-                            $max = $i->prioridad;
+                if ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
+                    $inscripcionPrevia = InscripcionCupoPractica::model()->find('id_postulacion_practica_fk=:ipp and id_cupo_practica_fk=:icp', array(':ipp' => $postulacion->id_inscripcion_practica, ':icp' => $cupo->id_cupo_practica));
+                    if ($inscripcionPrevia == null) {
+                        $inscripcion = new InscripcionCupoPractica();
+                        $inscripcion->id_cupo_practica_fk = $cupo->id_cupo_practica;
+                        //se pasa la id de la postulacion
+                        $inscripcion->id_postulacion_practica_fk = $postulacion->id_inscripcion_practica;
+                        $inscripcion->id_estado_fk = Estado::$POSTULACION_CUPO_INSCRITO;
+                        //calculo de la siguiente prioridad
+                        $max = 1;
+                        foreach ($postulacion->inscripcionCupoPracticas as $i) {
+                            if ($i->prioridad >= $max) {
+                                $max = $i->prioridad;
+                            }
                         }
-                    }
-                    $inscripcion->prioridad = ++$max;
-                    if ($inscripcion->save()) {
-                        Yii::app()->user->setFlash('success', 'Cupo inscrito correctamente');
-                        // $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
+                        $inscripcion->prioridad = ++$max;
+                        if ($inscripcion->save()) {
+                            Yii::app()->user->setFlash('success', 'Cupo inscrito correctamente');
+                            // $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
+                        } else {
+                            // throw new CHttpException(500, 'El cupo no pudo ser guardado.');
+                        }
                     } else {
-                        // throw new CHttpException(500, 'El cupo no pudo ser guardado.');
+                        Yii::app()->user->setFlash('error', 'Ya se había postulado a este cupo');
                     }
-                } else {
-                    Yii::app()->user->setFlash('error', 'Ya se había postulado a este cupo');
+                }else{
+                    Yii::app()->user->setFlash('error', 'La postulación debe encontrarse en borrador para poder inscribir centros de práctica.');
                 }
             }
         }
@@ -327,19 +398,19 @@ class PostulacionAPracticaController extends Controller {
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
-    public function actionCreate() {
-        $model = new PostulacionAPractica;
-        // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
-        if (isset($_POST['PostulacionAPractica'])) {
-            $model->attributes = $_POST['PostulacionAPractica'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
-        }
-        $this->render('create', array(
-            'model' => $model,
-        ));
-    }
+//    public function actionCreate() {
+//        $model = new PostulacionAPractica;
+//        // Uncomment the following line if AJAX validation is needed
+//        // $this->performAjaxValidation($model);
+//        if (isset($_POST['PostulacionAPractica'])) {
+//            $model->attributes = $_POST['PostulacionAPractica'];
+//            if ($model->save())
+//                $this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
+//        }
+//        $this->render('create', array(
+//            'model' => $model,
+//        ));
+//    }
 
     /**
      * Updates a particular model.
@@ -478,6 +549,25 @@ class PostulacionAPracticaController extends Controller {
         } else {
             return "Incompleta";
         }
+    }
+    /**
+     * 
+     * @param PostulacionAPractica $data
+     * @param type $row
+     * @param CDataColumn $dataColumn
+     */
+    public function gridFiltroCentroPractica($data, $row,$dataColumn) {
+        $session = new CHttpSession;
+        $session->open();
+        $filtro=$session['filtro_lugar_practica'];
+        $retorno= $data->id_inscripcion_practica.' Sin datos '.$filtro;
+        foreach($data->inscripcionCupoPracticas as $i){
+            if($i->idCupoPracticaFk->idEmpresaFk->id_empresa==$filtro){
+                $retorno=$i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad." - ".$i->idEstadoFk->nombre;
+                break;
+            }
+        }
+        return $retorno;
     }
 
     public function SendMail($asunto, $mensaje, $para) {

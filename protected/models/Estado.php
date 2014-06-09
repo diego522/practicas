@@ -32,6 +32,7 @@ class Estado extends CActiveRecord {
     public static $POSTULACION_PRACTICA_RECHAZADO = 11;
     public static $POSTULACION_PRACTICA_RENUNCIADA = 12;
     public static $POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS = 12;
+    public static $POSTULACION_PRACTICA_ASIGNADA = 14;
     
     public static $POSTULACION_CUPO_INSCRITO = 6;
     public static $POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION = 7;

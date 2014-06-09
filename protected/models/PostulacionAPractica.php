@@ -55,7 +55,7 @@ class PostulacionAPractica extends CActiveRecord {
             array('observaciones', 'length', 'max' => 2000),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id_inscripcion_practica,filtro_evaluacion,promedio,id_alumno,  id_periodo_practica_fk, fecha_creacion, id_estado_fk, cumple_con_requisitos_al_inscribir, observaciones, puntaje_por_notas, puntaje_por_curriculum', 'safe', 'on' => 'search'),
+            array('id_inscripcion_practica,filtro_lugar_practica,filtro_evaluacion,promedio,id_alumno,  id_periodo_practica_fk, fecha_creacion, id_estado_fk, cumple_con_requisitos_al_inscribir, observaciones, puntaje_por_notas, puntaje_por_curriculum', 'safe', 'on' => 'search'),
         );
     }
 
@@ -98,7 +98,9 @@ class PostulacionAPractica extends CActiveRecord {
     public function search() {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-
+        $session = new CHttpSession;
+        $session->open();
+        $session['filtro_lugar_practica'] = NULL;
         $criteria = new CDbCriteria;
 
         $criteria->compare('id_inscripcion_practica', $this->id_inscripcion_practica);
@@ -115,7 +117,17 @@ class PostulacionAPractica extends CActiveRecord {
         if($this->filtro_evaluacion!=NULL&&$this->filtro_evaluacion!=''){
             $criteria->addCondition('filtro_evaluacion='.$this->filtro_evaluacion);
         }
+        if($this->filtro_lugar_practica!=NULL&&$this->filtro_lugar_practica!=''){
+            $session['filtro_lugar_practica'] = $this->filtro_lugar_practica;
+            $criteria->addCondition('id_inscripcion_practica in '
+                    . '(select id_postulacion_practica_fk from inscripcion_cupo_practica '
+                    . ' where id_cupo_practica_fk in (select id_cupo_practica '
+                    . '             from cupo_practica where id_empresa_fk='.$this->filtro_lugar_practica.'))'
+                    );
+        }
         $criteria->addCondition('id_alumno in (select id_usuario from usuario where campus=' . Yii::app()->user->getState('campus') . ')');
+         
+        $session['resultado_filtro_admin_postulacion'] = $criteria;
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
