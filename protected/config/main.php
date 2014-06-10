@@ -147,7 +147,7 @@ return array(
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'webmaster@example.com',
-        'ruta_adjunto' => 'adjuntos/',
+        'ruta_adjunto' => '/adjuntos/',
         'ruta_curriculum' => 'curriculums/',
         'urlWebService' => 'http://arrau.chillan.ubiobio.cl/sistemaici/webservice/index.php?r=webService/ws',
     ),

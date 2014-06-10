@@ -30,8 +30,8 @@ class PostulacionAPracticaController extends Controller {
                 'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'Evaluar', 'asignarPracticas'),
-                'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
+                'actions' => array('create', 'update', 'Evaluar', 'asignarPracticas', 'viewPopUp'),
+                'roles' => array(Rol::$ADMINISTRADOR, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
@@ -62,98 +62,101 @@ class PostulacionAPracticaController extends Controller {
     }
 
     public function actionAsignarPracticas() {
+        $this->layout = '//layouts/column1';
         $model = new PostulacionAPractica();
         //var_dump($_POST['PostulacionAPractica']);
         //echo isset($_POST['PostulacionAPractica']); 
         if (isset($_POST['PostulacionAPractica'])) {
-            $model->attributes = $_POST['PostulacionAPractica'];
-            $contadorDeAsignados = 0;
-            $contadorDeQuedaronSinCupo = 0;
-            if (isset($model->id_periodo_practica_fk)) {
-                $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk));
-                $contador = 0;
-                foreach ($listaPostulaciones as $l) {
-                    if ($l->filtro_evaluacion == 1) {//evaluación hecha
-                        $contador++;
+            if ($_POST['PostulacionAPractica']['id_periodo_practica_fk'] != '') {
+                $model->attributes = $_POST['PostulacionAPractica'];
+                $contadorDeAsignados = 0;
+                $contadorDeQuedaronSinCupo = 0;
+                if (isset($model->id_periodo_practica_fk)) {
+                    $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk));
+                    $contador = 0;
+                    foreach ($listaPostulaciones as $l) {
+                        if ($l->filtro_evaluacion == 1) {//evaluación hecha
+                            $contador++;
+                        }
                     }
-                }
-                //  echo " contador_evaluaciones "+$contador;
-                if ($contador == count($listaPostulaciones)) {//todas las postulaciones evaluadas
-                    //    echo " if_true ";
-                    foreach ($listaPostulaciones as $l) {//recorrer todas las postulaciones
-                        //traer cada una de las inscripciones en cada postulacion
-                        //echo " foreach_postulaciones ";
-                        if ($l->id_estado_fk == Estado::$POSTULACION_PRACTICA_ENVIADA) {
-                            //   echo " if_true_postulacion_enviada ";
-                            $listaInscripciones = InscripcionCupoPractica::model()->findAll('id_postulacion_practica_fk=:id order by prioridad ASC', array(':id' => $l->id_inscripcion_practica));
-                            $cupoAsignado = FALSE;
-                            foreach ($listaInscripciones as $i) {
-                                //     echo " foreach_inscrpciones ";
-                                //Por cada inscripcion ver si es posible asignarla
-                                $contadorAsignadosPrevios = 0;
-                                foreach ($i->idCupoPracticaFk->inscripcionCupoPracticas as $ic) {
-                                    if ($ic->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION || $ic->id_estado_fk == Estado::$POSTULACION_CUPO_ASIGNADO) {
-                                        $contadorAsignadosPrevios++;
-                                    }
-                                }
-                                //   echo "contador "+$contadorAsignadosPrevios;
-                                //  echo " cantidad "+$i->idCupoPracticaFk->cantidad;
-                                if ($contadorAsignadosPrevios < $i->idCupoPracticaFk->cantidad) {
-                                    //hay cupos dosponibles se asigna el cupo 
-                                    $i->id_estado_fk = Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION;
-                                    $l->id_estado_fk = Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION;
-                                    if ($i->save()) {
-                                        if ($l->save()) {
-                                            $cupoAsignado = TRUE;
-                                            $correos = array();
-                                            $contadorDeAsignados++;
-                                            //$correos[] = PeticionesWebService::obtieneCorreoJefe(Yii::app()->user->getState('campus'));
-                                            // $correos[] = PeticionesWebService::obtieneCorreoSecretaria(Yii::app()->user->getState('campus'));
-                                            $correos[] = $l->idAlumno->email;
-                                            //email para profesor guia
-                                            $this->SendMail('Asignación de Cupo Para Práctica Profesional', '
-                                       Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica sobre PRE-ASIGNACIÓN del cupo para práctica profesional'
-                                                    . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema.'
-                                                    , $correos);
-                                            //Yii::app()->user->setFlash('success', "Proyecto Notificado con éxito.");
+                    //  echo " contador_evaluaciones "+$contador;
+                    if ($contador == count($listaPostulaciones)) {//todas las postulaciones evaluadas
+                        //    echo " if_true ";
+                        foreach ($listaPostulaciones as $l) {//recorrer todas las postulaciones
+                            //traer cada una de las inscripciones en cada postulacion
+                            //echo " foreach_postulaciones ";
+                            if ($l->id_estado_fk == Estado::$POSTULACION_PRACTICA_ENVIADA) {
+                                //   echo " if_true_postulacion_enviada ";
+                                $listaInscripciones = InscripcionCupoPractica::model()->findAll('id_postulacion_practica_fk=:id order by prioridad ASC', array(':id' => $l->id_inscripcion_practica));
+                                $cupoAsignado = FALSE;
+                                foreach ($listaInscripciones as $i) {
+                                    //     echo " foreach_inscrpciones ";
+                                    //Por cada inscripcion ver si es posible asignarla
+                                    $contadorAsignadosPrevios = 0;
+                                    foreach ($i->idCupoPracticaFk->inscripcionCupoPracticas as $ic) {
+                                        if ($ic->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION || $ic->id_estado_fk == Estado::$POSTULACION_CUPO_ASIGNADO) {
+                                            $contadorAsignadosPrevios++;
                                         }
                                     }
-                                    //ropme el ciclo para ir a la siguiente asignacion
-                                    break;
+                                    //   echo "contador "+$contadorAsignadosPrevios;
+                                    //  echo " cantidad "+$i->idCupoPracticaFk->cantidad;
+                                    if ($contadorAsignadosPrevios < $i->idCupoPracticaFk->cantidad) {
+                                        //hay cupos dosponibles se asigna el cupo 
+                                        $i->id_estado_fk = Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION;
+                                        $l->id_estado_fk = Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION;
+                                        if ($i->save()) {
+                                            if ($l->save()) {
+                                                $cupoAsignado = TRUE;
+                                                $correos = array();
+                                                $contadorDeAsignados++;
+                                                //$correos[] = PeticionesWebService::obtieneCorreoJefe(Yii::app()->user->getState('campus'));
+                                                // $correos[] = PeticionesWebService::obtieneCorreoSecretaria(Yii::app()->user->getState('campus'));
+                                                $correos[] = $l->idAlumno->email;
+                                                //email para profesor guia
+                                                $this->SendMail('Asignación de Cupo Para Práctica Profesional', '
+                                       Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica sobre PRE-ASIGNACIÓN del cupo para práctica profesional'
+                                                        . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema.'
+                                                        , $correos);
+                                                //Yii::app()->user->setFlash('success', "Proyecto Notificado con éxito.");
+                                            }
+                                        }
+                                        //ropme el ciclo para ir a la siguiente asignacion
+                                        break;
+                                    }
                                 }
-                            }
-                            if ($cupoAsignado == FALSE) {
-                                $l->id_estado_fk = Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS;
-                                $contadorDeQuedaronSinCupo++;
-                                if ($l->save()) {
-                                    $correos = array();
-                                    $contadorDeAsignados++;
-                                    //$correos[] = PeticionesWebService::obtieneCorreoJefe(Yii::app()->user->getState('campus'));
-                                    // $correos[] = PeticionesWebService::obtieneCorreoSecretaria(Yii::app()->user->getState('campus'));
-                                    $correos[] = $l->idAlumno->email;
-                                    //email para profesor guia
-                                    $this->SendMail('Rechazo de Cupo Para Práctica Profesional', '
+                                if ($cupoAsignado == FALSE) {
+                                    $l->id_estado_fk = Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS;
+                                    $contadorDeQuedaronSinCupo++;
+                                    if ($l->save()) {
+                                        $correos = array();
+                                        $contadorDeAsignados++;
+                                        //$correos[] = PeticionesWebService::obtieneCorreoJefe(Yii::app()->user->getState('campus'));
+                                        // $correos[] = PeticionesWebService::obtieneCorreoSecretaria(Yii::app()->user->getState('campus'));
+                                        $correos[] = $l->idAlumno->email;
+                                        //email para profesor guia
+                                        $this->SendMail('Rechazo de Cupo Para Práctica Profesional', '
                                        Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica que no ha sido posible asignarle práctica profesional '
-                                            . 'a ninguna de sus postulaciones.'
-                                            , $correos);
+                                                . 'a ninguna de sus postulaciones.'
+                                                , $correos);
+                                    }
                                 }
                             }
                         }
+                        Yii::app()->user->setFlash('success', "Se han asignado " . $contadorDeAsignados . " prácticas y han sido rechadas " . $contadorDeQuedaronSinCupo . " por falta de cupos.");
+                    } else {//faltan evaluaciones por hacer
+                        Yii::app()->user->setFlash('error', "Faltan postulaciones por evaluar");
                     }
-                    Yii::app()->user->setFlash('success', "Se han asignado " . $contadorDeAsignados . " prácticas y han sido rechadas " . $contadorDeQuedaronSinCupo . " por falta de cupos.");
-                } else {//faltan evaluaciones por hacer
-                    Yii::app()->user->setFlash('error', "Faltan postulaciones por evaluar");
+                } else {
+                    Yii::app()->user->setFlash('error', "Debe seleccionar un periodo");
                 }
             } else {
                 Yii::app()->user->setFlash('error', "Debe seleccionar un periodo");
             }
-        } else {
-            Yii::app()->user->setFlash('error', "Debe seleccionar un periodo");
         }
         $model->scenario = 'search';
-//        $this->render('admin', array(
-        //   'model' => $model,
-        // ));
+        $this->render('admin', array(
+            'model' => new PostulacionAPractica('search'),
+        ));
     }
 
     /**
@@ -277,6 +280,32 @@ class PostulacionAPracticaController extends Controller {
         }
     }
 
+    public function actionViewPopUp($id) {
+        $this->layout = '//layouts/column1';
+        $model = $this->loadModel($id);
+        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_ESPERANDO_CONFIRMACION && Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO))) {
+            //renderizar pantalla de confirmación
+            $modelCupo = NULL;
+            foreach ($model->inscripcionCupoPracticas as $i) {
+                if ($i->id_estado_fk == Estado::$POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION) {
+                    $modelCupo = $i->idCupoPracticaFk;
+                    break;
+                }
+            }
+            $this->render('confirmacionCupo', array(
+                'model' => $model,
+                'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+                'modelCupo' => $modelCupo,
+                    //'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+            ));
+        } else {
+            $this->renderPartial('view', array(
+                'model' => $model,
+                'modelInscripcionCupo' => new InscripcionCupoPractica('search'),
+                    ), false, true);
+        }
+    }
+
     public function actionEliminaCupoInscrito($idc, $idp) {
         $model = $this->loadModel($idp);
         if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
@@ -362,7 +391,7 @@ class PostulacionAPracticaController extends Controller {
                     } else {
                         Yii::app()->user->setFlash('error', 'Ya se había postulado a este cupo');
                     }
-                }else{
+                } else {
                     Yii::app()->user->setFlash('error', 'La postulación debe encontrarse en borrador para poder inscribir centros de práctica.');
                 }
             }
@@ -550,21 +579,35 @@ class PostulacionAPracticaController extends Controller {
             return "Incompleta";
         }
     }
+
     /**
      * 
      * @param PostulacionAPractica $data
      * @param type $row
      * @param CDataColumn $dataColumn
      */
-    public function gridFiltroCentroPractica($data, $row,$dataColumn) {
+    public function gridFiltroCentroPractica($data, $row, $dataColumn) {
         $session = new CHttpSession;
         $session->open();
-        $filtro=$session['filtro_lugar_practica'];
-        $retorno= $data->id_inscripcion_practica.' Sin datos '.$filtro;
-        foreach($data->inscripcionCupoPracticas as $i){
-            if($i->idCupoPracticaFk->idEmpresaFk->id_empresa==$filtro){
-                $retorno=$i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad." - ".$i->idEstadoFk->nombre;
-                break;
+        $filtro = $session['filtro_lugar_practica'];
+        if ($filtro != NULL && $filtro != '') {
+            foreach ($data->inscripcionCupoPracticas as $i) {
+                if ($i->idCupoPracticaFk->idEmpresaFk->id_empresa == $filtro) {
+                    $retorno = $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . " <b> " . $i->idEstadoFk->nombre . "</b>";
+                    break;
+                }
+            }
+        } else {
+
+            if ($data->id_estado_fk == Estado::$POSTULACION_PRACTICA_ASIGNADA) {
+                foreach ($data->inscripcionCupoPracticas as $i) {
+                    if ($i->id_estado_fk == Estado::$POSTULACION_CUPO_ASIGNADO) {
+                        $retorno = $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . " <b> " . $i->idEstadoFk->nombre . "</b>";
+                        break;
+                    }
+                }
+            } else {
+                $retorno = ' Sin asignar ';
             }
         }
         return $retorno;

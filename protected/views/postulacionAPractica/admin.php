@@ -53,6 +53,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->idEstadoFk->nombre',
             'filter' => CHtml::listData(Estado::model()->findAll('id_tipo_estado_fk=' . TipoEstado::$POSTULACION_A_PRACTICA), 'id_estado', 'nombre'),
         ),
+        array('header' => "Centro de Práctica",
+            'filter' => CHtml::activeDropDownList($model, 'filtro_lugar_practica', CHtml::listData(Empresa::model()->findAll($model->id_periodo_practica_fk != NULL && $model->id_periodo_practica_fk != 'campus=' . Yii::app()->user->getState('campus') ? 'campus=' . Yii::app()->user->getState('campus') . ' and id_empresa in (select id_empresa_fk from cupo_practica where id_periodo_practica_fk=' . $model->id_periodo_practica_fk . ')' : '' ), 'id_empresa', 'nombre_mas_ciudad'), array('empty' => '')),
+            'type' => 'raw',
+            'value' => array($this, 'gridFiltroCentroPractica')),
         array('name' => 'id_alumno',
             'value' => '$data->idAlumno->nombre." ".$data->idAlumno->apellido',
             'filter' => false,
@@ -61,10 +65,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'filter' => false,
             'type' => 'raw',
             'value' => array($this, 'gridUrlCurriculum')),
-        array('header' => "Centro de Práctica",
-            'filter' => CHtml::activeDropDownList($model, 'filtro_lugar_practica', CHtml::listData(Empresa::model()->findAll($model->id_periodo_practica_fk != NULL && $model->id_periodo_practica_fk != 'campus=' . Yii::app()->user->getState('campus') ? 'campus=' . Yii::app()->user->getState('campus') . ' and id_empresa in (select id_empresa_fk from cupo_practica where id_periodo_practica_fk=' . $model->id_periodo_practica_fk . ')' : '' ), 'id_empresa', 'nombre_mas_ciudad'), array('empty' => '')),
-            'type' => 'raw',
-            'value' => array($this, 'gridFiltroCentroPractica')),
         array('header' => "Evaluación",
             'filter' => CHtml::activeDropDownList($model, 'filtro_evaluacion', array(
                 '' => '',
@@ -89,7 +89,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'buttons' => array(
                 'view' => array(
                     'label' => 'Ver',
-                    // 'url' => "CHtml::normalizeUrl(array('view', 'id'=>\$data->id_propuesta))",
+                    'url' => "CHtml::normalizeUrl(array('viewPopUp', 'id'=>\$data->id_inscripcion_practica))",
                     'options' => array('id' => 'inline'),
                     'imageUrl' => Yii::app()->request->baseUrl . '/images/ver_icon.png',
                 ),
