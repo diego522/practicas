@@ -79,11 +79,11 @@ class PostulacionAPractica extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id_inscripcion_practica' => 'Id Inscripcion Practica',
-            'id_alumno' => 'Id Alumno',
-            'id_adjunto_fk' => 'Id Adjunto Fk',
-            'id_periodo_practica_fk' => 'Id Periodo Practica Fk',
-            'fecha_creacion' => 'Fecha Creacion',
-            'id_estado_fk' => 'Id Estado Fk',
+            'id_alumno' => 'Alumno',
+            'id_adjunto_fk' => 'Curriculum',
+            'id_periodo_practica_fk' => 'Práctica',
+            'fecha_creacion' => 'Fecha de Creación',
+            'id_estado_fk' => 'Estado',
             'cumple_con_requisitos_al_inscribir' => 'Cumple Con Requisitos Al Inscribir',
             'observaciones' => 'Observaciones',
             'puntaje_por_notas' => 'Puntaje Por Notas',

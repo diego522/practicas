@@ -8,7 +8,7 @@ $this->breadcrumbs = array(
 );
 ?>
 
-<h1>Listado de Cupos disponibles para prácticas profesionales</h1>
+<h1>Listado de cupos disponibles para prácticas profesionales</h1>
 
 <?php
 $form = $this->beginWidget('CActiveForm', array(

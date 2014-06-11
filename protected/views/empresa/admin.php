@@ -3,7 +3,7 @@
 /* @var $model Empresa */
 
 $this->breadcrumbs = array(
-    'Empresas' => array('admin'),
+    'Centros de Práctica' => array('admin'),
     'Administrar',
 );
 
@@ -13,7 +13,7 @@ $this->menu = array(
 );
 ?>
 
-<h1>Administrar Empresas</h1>
+<h1>Administrar Centros de Práctica</h1>
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'empresa-grid',

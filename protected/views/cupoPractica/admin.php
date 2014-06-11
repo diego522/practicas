@@ -8,7 +8,7 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'Nuevo  Cupo de Práctica', 'url' => array('create')),
+    array('label' => 'Nuevo Cupo en Centro de Práctica', 'url' => array('create')),
 );
 ?>
 

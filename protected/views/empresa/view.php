@@ -11,14 +11,14 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	//array('label'=>'List Empresa', 'url'=>array('index')),
 	//array('label'=>'Create Empresa', 'url'=>array('create')),
-	array('label' => 'Agregar Contacto', 'url' => array('contactoEmpresa/create', 'ide' => $model->id_empresa), 'linkOptions' => array('id' => 'inline'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
-	array('label'=>'Modificar Empresa', 'url'=>array('update', 'id'=>$model->id_empresa),'linkOptions' => array('id' => 'inline')),
-	array('label'=>'Eliminar Empresa', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_empresa),'confirm'=>'Está seguro de eliminar este item?')),
-	array('label'=>'Administrar Empresas', 'url'=>array('admin')),
+	array('label' =>'Agregar Contacto', 'url' => array('contactoEmpresa/create', 'ide' => $model->id_empresa), 'linkOptions' => array('id' => 'inline'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
+	array('label'=>'Modificar Centro de Práctica', 'url'=>array('update', 'id'=>$model->id_empresa),'linkOptions' => array('id' => 'inline')),
+	array('label'=>'Eliminar Centro de Práctica', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_empresa),'confirm'=>'Está seguro de eliminar este item?')),
+	array('label'=>'Administrar Centro de Práctica', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Detalle de la Empresa <?php echo $model->nombre; ?></h1>
+<h1>Detalle del Centro de Práctica <?php echo $model->nombre; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

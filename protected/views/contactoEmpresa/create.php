@@ -10,6 +10,6 @@ $this->breadcrumbs=array(
 
 ?>
 
-<h1>Nuevo Contacto de Empresa</h1>
+<h1>Nuevo Contacto de Centro de Práctica</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

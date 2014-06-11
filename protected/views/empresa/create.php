@@ -3,13 +3,13 @@
 /* @var $model Empresa */
 
 $this->breadcrumbs=array(
-	'Empresas'=>array('admin'),
-	'Create',
+	'Centros de Práctica'=>array('admin'),
+	'Nuevo Centro de Práctica',
 );
 
 
 ?>
 
-<h1>Nueca Empresa</h1>
+<h1>Nuevo Centro de Práctica</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

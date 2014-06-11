@@ -72,14 +72,14 @@ class ContactoEmpresa extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id_contacto_empresa' => 'Id Contacto Empresa',
-            'nombre' => 'Nombre',
+            'nombre' => 'Nombre Contacto',
             'email' => 'Email',
-            'telefono' => 'Telefono',
+            'telefono' => 'Teléfono',
             'celular' => 'Celular',
             'unidad' => 'Unidad',
             'cargo' => 'Cargo',
             'contacto_principal' => 'Contacto Principal',
-            'id_empresa_fk' => 'Id Empresa Fk',
+            'id_empresa_fk' => 'Centro de práctica',
             'id_usuario_inserta_fk' => 'Id Usuario Inserta Fk',
         );
     }

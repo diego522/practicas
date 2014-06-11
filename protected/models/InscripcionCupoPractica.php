@@ -73,13 +73,13 @@ class InscripcionCupoPractica extends CActiveRecord {
     public function attributeLabels() {
         return array(
             'id_inscripcion_practica' => 'Id Inscripcion Practica',
-            'id_cupo_practica_fk' => 'Id Cupo Practica Fk',
+            'id_cupo_practica_fk' => 'Centro de práctica',
             'id_postulacion_practica_fk' => 'Id Postulacion Practica Fk',
             'prioridad' => 'Prioridad',
-            'fecha_inscripcion' => 'Fecha Inscripcion',
-            'id_estado_fk' => 'Id Estado Fk',
-            'confirmacion' => 'Confirmacion',
-            'motivo_rechazo' => 'Motivo Rechazo',
+            'fecha_inscripcion' => 'Fecha de inscripción',
+            'id_estado_fk' => 'Estado',
+            'confirmacion' => 'Confirmación',
+            'motivo_rechazo' => 'Motivo de Rechazo',
             'observaciones' => 'Observaciones',
             'notificado' => 'Notificado',
         );

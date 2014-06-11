@@ -3,7 +3,7 @@
 /* @var $model Empresa */
 
 $this->breadcrumbs=array(
-	'Empresas'=>array('admin'),
+	'Centros de Práctica'=>array('admin'),
 	$model->nombre=>array('view','id'=>$model->id_empresa),
 	'Modificar',
 );
@@ -11,6 +11,6 @@ $this->breadcrumbs=array(
 
 ?>
 
-<h1>Modificar Empresa <?php echo $model->nombre; ?></h1>
+<h1>Modificar Centro de Práctica <?php echo $model->nombre; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

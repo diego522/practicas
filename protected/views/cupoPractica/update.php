@@ -11,6 +11,6 @@ $this->breadcrumbs=array(
 
 ?>
 
-<h1>Modificar Cupo de Práctica</h1>
+<h1>Modificar Cupo en Centro de Práctica</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -8,12 +8,7 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List ContactoEmpresa', 'url'=>array('index')),
-	array('label'=>'Create ContactoEmpresa', 'url'=>array('create')),
-	array('label'=>'View ContactoEmpresa', 'url'=>array('view', 'id'=>$model->id_contacto_empresa)),
-	array('label'=>'Manage ContactoEmpresa', 'url'=>array('admin')),
-);
+
 ?>
 
 <h1>Modificar Contacto de Empresa</h1>

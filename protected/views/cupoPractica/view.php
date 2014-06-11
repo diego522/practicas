@@ -16,7 +16,7 @@ $this->menu = array(
 );
 ?>
 
-<h1>Detalle del Cupo de Practica </h1>
+<h1>Detalle del Cupo en Centro de Práctica </h1>
 
 <?php
 $this->widget('zii.widgets.CDetailView', array(
