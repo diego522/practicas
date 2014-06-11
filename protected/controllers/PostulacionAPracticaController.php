@@ -492,11 +492,17 @@ class PostulacionAPracticaController extends Controller {
      * @param integer $id the ID of the model to be deleted
      */
     public function actionDelete($id) {
-        $this->loadModel($id)->delete();
-
-        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-        if (!isset($_GET['ajax']))
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+       $model= $this->loadModel($id);
+       if($model->id_estado_fk==Estado::$POSTULACION_PRACTICA_BORRADOR){
+           $model ->delete();
+           // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+           if (!isset($_GET['ajax'])) {
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            }
+        }else{
+            Yii::app()->user->setFlash('error', "La postulación debe encontrarse en estado borrador para poder ser renunciada.");
+           $this->redirect(array('index', ));
+       }
     }
 
     /**
@@ -538,9 +544,15 @@ class PostulacionAPracticaController extends Controller {
      */
     public function loadModel($id) {
         $model = PostulacionAPractica::model()->findByPk($id);
-        if ($model === null)
+        if ($model === null){
             throw new CHttpException(404, 'La Petición no Existe.');
-        return $model;
+        }else{
+            if ($this->esPropietario($model)) {
+                return $model;
+            } else {
+                throw new CHttpException(404, 'No está autorizado.');
+            }
+        }
     }
 
     /**
@@ -630,5 +642,18 @@ class PostulacionAPracticaController extends Controller {
         $message->setTo($para); // a quien se le envia
         Yii::app()->mail->send($message);
     }
-
+    /**
+     * 
+     * @param PostulacionAPractica $model
+     */
+    private function esPropietario($model){
+        if(Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO,  Rol::$ADMINISTRADOR))){
+            return TRUE;
+        }else{
+           if($model->id_alumno==Yii::app()->user->id){
+               return TRUE;
+           } 
+        }
+        return false;
+    } 
 }

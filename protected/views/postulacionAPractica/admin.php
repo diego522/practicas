@@ -3,14 +3,14 @@
 /* @var $model PostulacionAPractica */
 
 $this->breadcrumbs = array(
-    'Postulacion Apracticas' => array('admin'),
+    'Postulaciones a prácticas' => array('admin'),
     'Administrar Postulaciones',
 );
 
-$this->menu = array(
-    array('label' => 'List PostulacionAPractica', 'url' => array('index')),
-    array('label' => 'Create PostulacionAPractica', 'url' => array('create')),
-);
+//$this->menu = array(
+//    array('label' => 'List PostulacionAPractica', 'url' => array('index')),
+//    array('label' => 'Create PostulacionAPractica', 'url' => array('create')),
+//);
 ?>
 
 <h1>Administrar Postulaciones a Practicas</h1>

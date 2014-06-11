@@ -18,7 +18,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'filter' => $model,
     'columns' => array(
         //'id_periodo_practica',
-        'nombre',
+        array('name'=>'nombre','filter'=>false),
         array(
             'name' => 'id_tipo_practica_fk',
             'value' => '$data->idTipoPracticaFk->nombre',

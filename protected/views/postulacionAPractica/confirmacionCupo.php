@@ -5,7 +5,7 @@
 /* @var $modelInscripcionCupo InscripcionCupoPractica */
 
 $this->breadcrumbs = array(
-    'Confirmación del cupo' => array('index'),
+    'Confirmación de asignación' => array('index'),
     "Detalle",
 );
 ?>

@@ -4,8 +4,8 @@
 /* @var $modelInscripcionCupo InscripcionCupoPractica */
 
 $this->breadcrumbs = array(
-    'Postulacion Apracticas' => array('index'),
-    "Detalle",
+    'Selección de la postulación' => array('index'),
+    "Detalle de la postulación",
 );
 //
 //$this->menu=array(
@@ -17,7 +17,7 @@ $this->breadcrumbs = array(
 //);
 ?>
 
-<h1>Detalles de la postulación</h1>
+<h1>Detalles de la postulación a práctica profesional</h1>
 
 <?php
 $this->widget('zii.widgets.CDetailView', array(

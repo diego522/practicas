@@ -20,10 +20,10 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'nombre',
-        'direccion',
-        'web',
-        array('name'=>'id_cuidad_fk','value'=>'$data->idCuidadFk->COMUNA_NOMBRE'),
+        array('name' => 'nombre'),
+        array('name' => 'direccion', 'filter' => FALSE),
+        array('name' => 'web', 'filter' => false),
+        array('name' => 'id_cuidad_fk', 'value' => '$data->idCuidadFk->COMUNA_NOMBRE', 'filter' => false),
         array(
             'class' => 'CButtonColumn',
             'template' => '{view} {update} {delete}',

@@ -3,33 +3,35 @@
 /* @var $model Empresa */
 /* @var $modelContactos ContactoEmpresa */
 
-$this->breadcrumbs=array(
-	'Empresas'=>array('index'),
-	$model->nombre,
+$this->breadcrumbs = array(
+    'Empresas' => array('index'),
+    $model->nombre,
 );
 
-$this->menu=array(
-	//array('label'=>'List Empresa', 'url'=>array('index')),
-	//array('label'=>'Create Empresa', 'url'=>array('create')),
-	array('label' =>'Agregar Contacto', 'url' => array('contactoEmpresa/create', 'ide' => $model->id_empresa), 'linkOptions' => array('id' => 'inline'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
-	array('label'=>'Modificar Centro de Práctica', 'url'=>array('update', 'id'=>$model->id_empresa),'linkOptions' => array('id' => 'inline')),
-	array('label'=>'Eliminar Centro de Práctica', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id_empresa),'confirm'=>'Está seguro de eliminar este item?')),
-	array('label'=>'Administrar Centro de Práctica', 'url'=>array('admin')),
+$this->menu = array(
+    //array('label'=>'List Empresa', 'url'=>array('index')),
+    //array('label'=>'Create Empresa', 'url'=>array('create')),
+    array('label' => 'Agregar Contacto', 'url' => array('contactoEmpresa/create', 'ide' => $model->id_empresa), 'linkOptions' => array('id' => 'inline'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
+    array('label' => 'Modificar Centro de Práctica', 'url' => array('update', 'id' => $model->id_empresa), 'linkOptions' => array('id' => 'inline')),
+    array('label' => 'Eliminar Centro de Práctica', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id_empresa), 'confirm' => 'Está seguro de eliminar este item?')),
+    array('label' => 'Administrar Centro de Práctica', 'url' => array('admin')),
 );
 ?>
 
 <h1>Detalle del Centro de Práctica <?php echo $model->nombre; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		//'id_empresa',
-		'nombre',
-		'direccion',
-		'web',
-		array('name'=>'id_cuidad_fk', 'value'=>$model->idCuidadFk->COMUNA_NOMBRE.', '.$model->idCuidadFk->cOMUNAPROVINCIA->pROVINCIAREGION->REGION_NOMBRE),
-	),
-)); ?>
+<?php
+$this->widget('zii.widgets.CDetailView', array(
+    'data' => $model,
+    'attributes' => array(
+        //'id_empresa',
+        'nombre',
+        'direccion',
+        'web',
+        array('name' => 'id_cuidad_fk', 'value' => $model->idCuidadFk->COMUNA_NOMBRE . ', ' . $model->idCuidadFk->cOMUNAPROVINCIA->pROVINCIAREGION->REGION_NOMBRE),
+    ),
+));
+?>
 <h2>Listado de Contactos</h2>
 <?php
 $this->widget('zii.widgets.grid.CGridView', array(
@@ -49,8 +51,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'filter' => false,),
         array('name' => 'contacto_principal',
             'filter' => false,
-            'value'=> '$data->contacto_principal==1?\'SI\':\'NO\''
-            ),
+            'value' => '$data->contacto_principal==1?\'SI\':\'NO\''
+        ),
         array(
             'class' => 'CButtonColumn',
             'template' => '{view} {update} {delete}',
