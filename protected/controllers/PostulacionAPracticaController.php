@@ -72,7 +72,7 @@ class PostulacionAPracticaController extends Controller {
                 $contadorDeAsignados = 0;
                 $contadorDeQuedaronSinCupo = 0;
                 if (isset($model->id_periodo_practica_fk)) {
-                    $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk));
+                    $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp and id_estado_fk=:ide order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk,':ide'=>  Estado::$POSTULACION_PRACTICA_ENVIADA));
                     $contador = 0;
                     foreach ($listaPostulaciones as $l) {
                         if ($l->filtro_evaluacion == 1) {//evaluación hecha
@@ -154,7 +154,7 @@ class PostulacionAPracticaController extends Controller {
             }
         }
         $model->scenario = 'search';
-        $this->render('admin', array(
+        $this->render('asignacionDePracticas', array(
             'model' => new PostulacionAPractica('search'),
         ));
     }
@@ -340,7 +340,7 @@ class PostulacionAPracticaController extends Controller {
             $cupo = CupoPractica::model()->findByPk($idCupo);
             $idu = Yii::app()->user->id;
             $postulacion = PostulacionAPractica::model()->find('id_alumno=:ida and id_periodo_practica_fk=:idp', array(':ida' => $idu, ':idp' => $cupo->id_periodo_practica_fk));
-            if ($postulacion == NULL) {
+            if ($postulacion == NULL || ($postulacion!=NULL && ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADO||$postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS))) {
                 //nueva postulación
                 $postulacion = new PostulacionAPractica();
                 $postulacion->id_alumno = $idu;
