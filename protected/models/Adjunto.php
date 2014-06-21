@@ -16,7 +16,8 @@
  */
 class Adjunto extends CActiveRecord {
 
-    public static $formatos_acepotados = array('pdf', 'doc', 'odt', 'docx', 'txt', 'jpg', 'jpeg', 'png', 'gif', 'bmp', 'zip', 'rar', 'tar.gz', 'gz', '7z');
+    public static $formatos_acepotados = array('pdf',);
+   // public static $formatos_acepotados = array('pdf', 'doc', 'odt', 'docx', 'txt', 'jpg', 'jpeg', 'png', 'gif', 'bmp', 'zip', 'rar', 'tar.gz', 'gz', '7z');
 
     /**
      * Returns the static model of the specified AR class.

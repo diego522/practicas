@@ -64,7 +64,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
          */
         array(
             'class' => 'CButtonColumn',
-            'template' => '{view} {evaluar}',
+            'deleteConfirmation'=>"js:'Desea eliminar esta posutlación ?'",
+            'template' => '{view} {evaluar} {delete}',
             'buttons' => array(
                 'view' => array(
                     'label' => 'Ver',
@@ -78,11 +79,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
 //                    'options' => array('id' => 'inline'),
 //                    'imageUrl' => Yii::app()->request->baseUrl . '/images/edit_icon.png',
 //                ),
-//                'delete' => array(
-//                    'label' => 'Borrar',
-//                    // 'url' => "CHtml::normalizeUrl(array('delete', 'id'=>\$data->id_propuesta))",
-//                    'imageUrl' => Yii::app()->request->baseUrl . '/images/delete_icon.png',
-//                ),
+                'delete' => array(
+                    'label' => 'Borrar',
+                    // 'url' => "CHtml::normalizeUrl(array('delete', 'id'=>\$data->id_propuesta))",
+                    'imageUrl' => Yii::app()->request->baseUrl . '/images/delete_icon.png',
+                ),
                 'evaluar' => array(
                     'label' => 'Evaluar',
                     'url' => "CHtml::normalizeUrl(array('evaluar', 'id'=>\$data->id_inscripcion_practica))",

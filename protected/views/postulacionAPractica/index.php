@@ -26,6 +26,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array('name' => 'id_estado_fk',
             'value' => '$data->idEstadoFk->nombre',
             'filter' => FALSE),
+        array('name' => 'fecha_creacion', 'filter' => false),
         /*
           'cumple_con_requisitos_al_inscribir',
           'observaciones',
@@ -34,22 +35,23 @@ $this->widget('zii.widgets.grid.CGridView', array(
          */
         array(
             'class' => 'CButtonColumn',
-            'deleteConfirmation'=>"js:'Desea renunciar esta posutlación '+$(this).parent().parent().children(':first-child').text()+'?'",
-            'template' => '{view} {delete}',
+            // 'deleteConfirmation'=>"js:'Desea renunciar esta posutlación '+$(this).parent().parent().children(':first-child').text()+'?'",
+            'template' => '{view} {renunciar}',
             'buttons' => array(
                 'view' => array(
                     //'label' => 'Ver detalles',
-                    //'url' => "CHtml::normalizeUrl(array('contactoEmpresa/view', 'id'=>\$data->id_contacto_empresa))",
+                    //'url' => "CHtml::normalizeUrl(array('contactoEmpresa/view', 'id'=>\$data->id_inscripcion_practica))",
                     'imageUrl' => Yii::app()->request->baseUrl . '/images/ver_icon.png',
                 //'options' => array('id' => 'inline')
                 // 'options' => array('class'=>'pdf'),
                 ),
-                'delete' => array(
+                'renunciar' => array(
                     'label' => 'Renunciar',
-                    // 'url' => "CHtml::normalizeUrl(array('contactoEmpresa/delete', 'id'=>\$data->id_contacto_empresa))",
+                    'url' => "CHtml::normalizeUrl(array('renunciar', 'id'=>\$data->id_inscripcion_practica))",
+                    //'url'=>'Yii::app()->createUrl("renunciar", array("id"=>$data->id_inscripcion_practica))',
                     'title' => "Renunciar",
                     'imageUrl' => Yii::app()->request->baseUrl . '/images/delete_icon.png',
-                    ''
+                    'click' => "function(){return confirm('Desea renunciar esta posutlación '+$(this).parent().parent().children(':first-child').text()+'?');}",
                 // 'options' => array('id' => 'inline')
                 // 'options' => array('class'=>'pdf'),
                 ),

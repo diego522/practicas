@@ -27,13 +27,14 @@ $this->breadcrumbs = array(
         <?php echo $form->error($model, 'id_periodo_practica_fk'); ?>
     </div>
     <div class="row buttons">
-        <?php echo CHtml::button('Asignar Prácticas', 
-                array('submit' => array('asignarPracticas'),
-                    'confirm' => 'Esta acción verificará que todas las postulaciones enviadas del periodo seleccionado se encuentren evaluadas. Desea continuar?')
-                ); ?>
+        <?php
+        echo CHtml::button('Asignar Prácticas', array('submit' => array('asignarPracticas'),
+            'confirm' => 'Esta acción verificará que todas las postulaciones enviadas del periodo seleccionado se encuentren evaluadas. Desea continuar?')
+        );
+        ?>
     </div>
-
-    <?php $this->endWidget(); ?>
-
+<?php $this->endWidget(); ?>
 </div><!-- form -->
+
+
 

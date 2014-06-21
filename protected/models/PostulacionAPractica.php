@@ -51,8 +51,9 @@ class PostulacionAPractica extends CActiveRecord {
         // will receive user inputs.
         return array(
             array('id_alumno, id_periodo_practica_fk, id_estado_fk', 'required'),
-            array('id_alumno, id_periodo_practica_fk, id_estado_fk, cumple_con_requisitos_al_inscribir, puntaje_por_notas, puntaje_por_curriculum', 'numerical', 'integerOnly' => true),
+            array('id_alumno, id_periodo_practica_fk, id_estado_fk, cumple_con_requisitos_al_inscribir', 'numerical', 'integerOnly' => true),
             array('observaciones', 'length', 'max' => 2000),
+            array('puntaje_por_notas, puntaje_por_curriculum','numerical','min'=>0,'max'=>7),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('id_inscripcion_practica,filtro_lugar_practica,filtro_evaluacion,promedio,id_alumno,  id_periodo_practica_fk, fecha_creacion, id_estado_fk, cumple_con_requisitos_al_inscribir, observaciones, puntaje_por_notas, puntaje_por_curriculum', 'safe', 'on' => 'search'),
@@ -114,19 +115,19 @@ class PostulacionAPractica extends CActiveRecord {
         $criteria->compare('observaciones', $this->observaciones, true);
         $criteria->compare('puntaje_por_notas', $this->puntaje_por_notas);
         $criteria->compare('puntaje_por_curriculum', $this->puntaje_por_curriculum);
-        if($this->filtro_evaluacion!=NULL&&$this->filtro_evaluacion!=''){
-            $criteria->addCondition('filtro_evaluacion='.$this->filtro_evaluacion);
+        if ($this->filtro_evaluacion != NULL && $this->filtro_evaluacion != '') {
+            $criteria->addCondition('filtro_evaluacion=' . $this->filtro_evaluacion);
         }
-        if($this->filtro_lugar_practica!=NULL&&$this->filtro_lugar_practica!=''){
+        if ($this->filtro_lugar_practica != NULL && $this->filtro_lugar_practica != '') {
             $session['filtro_lugar_practica'] = $this->filtro_lugar_practica;
             $criteria->addCondition('id_inscripcion_practica in '
                     . '(select id_postulacion_practica_fk from inscripcion_cupo_practica '
                     . ' where id_cupo_practica_fk in (select id_cupo_practica '
-                    . '             from cupo_practica where id_empresa_fk='.$this->filtro_lugar_practica.'))'
-                    );
+                    . '             from cupo_practica where id_empresa_fk=' . $this->filtro_lugar_practica . '))'
+            );
         }
         $criteria->addCondition('id_alumno in (select id_usuario from usuario where campus=' . Yii::app()->user->getState('campus') . ')');
-         
+
         $session['resultado_filtro_admin_postulacion'] = $criteria;
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -150,7 +151,7 @@ class PostulacionAPractica extends CActiveRecord {
         $criteria->compare('puntaje_por_notas', $this->puntaje_por_notas);
         $criteria->compare('puntaje_por_curriculum', $this->puntaje_por_curriculum);
         $criteria->addCondition('id_alumno=' . Yii::app()->user->id);
-
+        $criteria->order = "fecha_creacion DESC";
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
@@ -164,6 +165,25 @@ class PostulacionAPractica extends CActiveRecord {
                 'defaultStickOnClear' => false /* optional line */
             ),
         );
+    }
+
+    public function beforeSave() {
+        if ($this->isNewRecord) {
+            $this->fecha_creacion = new CDbExpression('NOW()');
+        } else {
+
+            $newDate = DateTime::createFromFormat('d/m/Y H:i', $this->fecha_creacion);
+            if ($newDate != null) {
+                $this->fecha_creacion = $newDate->format('Y-m-d H:i:s');
+            }
+        }
+        return parent::beforeSave();
+    }
+
+    protected function afterFind() {
+        // convert to display format
+        $this->fecha_creacion != NULL ? $this->fecha_creacion = Yii::app()->dateFormatter->format("dd/MM/y HH:mm", strtotime($this->fecha_creacion)) : '';
+        parent::afterFind();
     }
 
 }

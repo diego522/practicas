@@ -26,7 +26,7 @@ class PostulacionAPracticaController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view', 'inscribirCupo', 'confirmar', 'rechazar', 'ajaxUpdatePrioridad', 'eliminaCupoInscrito', 'subirAdjunto', 'Download', 'enviarPostulacion'),
+                'actions' => array('index', 'view', 'inscribirCupo', 'Renunciar', 'confirmar', 'rechazar', 'ajaxUpdatePrioridad', 'eliminaCupoInscrito', 'subirAdjunto', 'Download', 'enviarPostulacion'),
                 'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -35,7 +35,7 @@ class PostulacionAPracticaController extends Controller {
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
+                'roles' => array(Rol::$ADMINISTRADOR, Rol::$SUPER_USUARIO),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
@@ -72,7 +72,7 @@ class PostulacionAPracticaController extends Controller {
                 $contadorDeAsignados = 0;
                 $contadorDeQuedaronSinCupo = 0;
                 if (isset($model->id_periodo_practica_fk)) {
-                    $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp and id_estado_fk=:ide order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk,':ide'=>  Estado::$POSTULACION_PRACTICA_ENVIADA));
+                    $listaPostulaciones = PostulacionAPractica::model()->findAll('id_periodo_practica_fk=:idp and id_estado_fk=:ide order by promedio DESC', array(':idp' => $model->id_periodo_practica_fk, ':ide' => Estado::$POSTULACION_PRACTICA_ENVIADA));
                     $contador = 0;
                     foreach ($listaPostulaciones as $l) {
                         if ($l->filtro_evaluacion == 1) {//evaluación hecha
@@ -336,12 +336,16 @@ class PostulacionAPracticaController extends Controller {
 
     public function actionInscribirCupo($idc) {
         $idcA = explode("-", $idc);
+        if(count($idcA)>0){
         foreach ($idcA as $idCupo) {
+            echo "--------------------------------------------------------------------------------------------------------------------------------<br/>";
             $cupo = CupoPractica::model()->findByPk($idCupo);
             $idu = Yii::app()->user->id;
             $postulacion = PostulacionAPractica::model()->find('id_alumno=:ida and id_periodo_practica_fk=:idp', array(':ida' => $idu, ':idp' => $cupo->id_periodo_practica_fk));
-            if ($postulacion == NULL || ($postulacion!=NULL && ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADO||$postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS))) {
+            //var_dump($postulacion);
+            if ($postulacion == NULL || ($postulacion != NULL && ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADO || $postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS))) {
                 //nueva postulación
+                echo "post null";
                 $postulacion = new PostulacionAPractica();
                 $postulacion->id_alumno = $idu;
                 $postulacion->id_periodo_practica_fk = $cupo->id_periodo_practica_fk;
@@ -365,6 +369,7 @@ class PostulacionAPracticaController extends Controller {
                     throw new CHttpException(500, 'La postulación no pudo ser guardada.');
                 }
             } else {
+                echo "NO NIL";
                 //posee postulación anterior para el periodo seleccionado
                 if ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
                     $inscripcionPrevia = InscripcionCupoPractica::model()->find('id_postulacion_practica_fk=:ipp and id_cupo_practica_fk=:icp', array(':ipp' => $postulacion->id_inscripcion_practica, ':icp' => $cupo->id_cupo_practica));
@@ -395,6 +400,11 @@ class PostulacionAPracticaController extends Controller {
                     Yii::app()->user->setFlash('error', 'La postulación debe encontrarse en borrador para poder inscribir centros de práctica.');
                 }
             }
+        }
+        }else{
+            Yii::app()->user->setFlash('error', 'Debe seleccionar al menos un cupo para inscribir.');
+            $this->redirect(array('index',));
+            return;
         }
         $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
     }
@@ -450,7 +460,7 @@ class PostulacionAPracticaController extends Controller {
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
         if (isset($_POST['PostulacionAPractica'])) {
             $model->attributes = $_POST['PostulacionAPractica'];
             if ($model->puntaje_por_curriculum != 0 && $model->puntaje_por_notas) {
@@ -492,17 +502,42 @@ class PostulacionAPracticaController extends Controller {
      * @param integer $id the ID of the model to be deleted
      */
     public function actionDelete($id) {
-       $model= $this->loadModel($id);
-       if($model->id_estado_fk==Estado::$POSTULACION_PRACTICA_BORRADOR){
-           $model ->delete();
-           // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-           if (!isset($_GET['ajax'])) {
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+        $model = $this->loadModel($id);
+//        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
+        $model->delete();
+        // $model->id_estado_fk == Estado::$POSTULACION_PRACTICA_RENUNCIADA;
+        // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+        Yii::app()->user->setFlash('success', "La postulación ha sido renunciada.");
+        if (!isset($_GET['ajax'])) {
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+        }
+//        } else {
+//            Yii::app()->user->setFlash('error', "La postulación debe encontrarse en estado borrador para poder ser renunciada.");
+//            $this->redirect(array('index',));
+//        }
+    }
+
+    /**
+     * Deletes a particular model.
+     * If deletion is successful, the browser will be redirected to the 'admin' page.
+     * @param integer $id the ID of the model to be deleted
+     */
+    public function actionRenunciar($id) {
+        $model = $this->loadModel($id);
+        if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
+            //$model ->delete();
+            $model->id_estado_fk = Estado::$POSTULACION_PRACTICA_RENUNCIADA;
+            $model->save();
+            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+            Yii::app()->user->setFlash('success', "La postulación ha sido renunciada.");
+            if (!isset($_GET['ajax'])) {
+                //$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
             }
-        }else{
+        } else {
             Yii::app()->user->setFlash('error', "La postulación debe encontrarse en estado borrador para poder ser renunciada.");
-           $this->redirect(array('index', ));
-       }
+            // $this->redirect(array('index',));
+        }
+        $this->redirect(array('index'));
     }
 
     /**
@@ -544,9 +579,9 @@ class PostulacionAPracticaController extends Controller {
      */
     public function loadModel($id) {
         $model = PostulacionAPractica::model()->findByPk($id);
-        if ($model === null){
+        if ($model === null) {
             throw new CHttpException(404, 'La Petición no Existe.');
-        }else{
+        } else {
             if ($this->esPropietario($model)) {
                 return $model;
             } else {
@@ -642,18 +677,20 @@ class PostulacionAPracticaController extends Controller {
         $message->setTo($para); // a quien se le envia
         Yii::app()->mail->send($message);
     }
+
     /**
      * 
      * @param PostulacionAPractica $model
      */
-    private function esPropietario($model){
-        if(Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO,  Rol::$ADMINISTRADOR))){
+    private function esPropietario($model) {
+        if (Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))) {
             return TRUE;
-        }else{
-           if($model->id_alumno==Yii::app()->user->id){
-               return TRUE;
-           } 
+        } else {
+            if ($model->id_alumno == Yii::app()->user->id) {
+                return TRUE;
+            }
         }
         return false;
-    } 
+    }
+
 }

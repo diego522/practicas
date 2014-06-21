@@ -130,6 +130,7 @@ class InscripcionCupoPractica extends CActiveRecord {
         $criteria->order='prioridad ASC';
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'pagination'=>false, 
         ));
     }
 
