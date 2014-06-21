@@ -9,7 +9,7 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
     //array('label'=>'List Empresa', 'url'=>array('index')),
-    array('label' => 'Nueva Empresa', 'url' => array('create'), 'linkOptions' => array('id' => 'inline')),
+    array('label' => 'Nuevo Centro de Práctica', 'url' => array('create'), 'linkOptions' => array('id' => 'inline')),
 );
 ?>
 
