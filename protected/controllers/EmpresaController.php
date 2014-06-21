@@ -26,7 +26,7 @@ class EmpresaController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
+                'actions' => array( 'view'),
                 'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
