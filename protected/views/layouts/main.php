@@ -71,10 +71,10 @@
                         array('label' => 'Inicio', 'url' => array('/site/index')),
                         array('label' => 'Postulaciones a Práctica', 'items' => array(
                                 array('label' => 'Prácticas Disponibles', 'url' => array('periodoPractica/periodosDisponibles'),),
-                                array('label' => 'Mis Postulaciones', 'url' => array('postulacionAPractica/index'),),
+                                array('label' => 'Mis Postulaciones', 'url' => array('postulacionAPractica/index'),'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO))),
                                // array('label' => 'Proponer Asignación de Prácticas', 'url' => array('postulacionAPractica/asignarPracticas'),),
-                                array('label' => 'Administrar Postulaciones', 'url' => array('postulacionAPractica/admin'),),
-                            ), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO, Rol::$PROFESOR, Rol::$ADMINISTRADOR))),
+                                array('label' => 'Administrar Postulaciones', 'url' => array('postulacionAPractica/admin'),'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO,  Rol::$ADMINISTRADOR))),
+                            ), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO,  Rol::$ADMINISTRADOR))),
                         array('label' => 'Administración', 'items' => array(
                                 array('label' => 'Administrar Centros de Práctica', 'url' => array('empresa/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
                                 array('label' => 'Administrar Periodos Práctica', 'url' => array('periodoPractica/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),

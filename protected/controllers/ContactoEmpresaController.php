@@ -35,7 +35,7 @@ class ContactoEmpresaController extends Controller {
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
+                'roles' => array(Rol::$ADMINISTRADOR, Rol::$SUPER_USUARIO),
             ),
             array('deny', // deny all users
                 'users' => array('*'),

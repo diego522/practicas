@@ -31,11 +31,11 @@ class PeriodoPracticaController extends Controller {
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
                 'actions' => array('create', 'update'),
-                'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
+                'roles' => array(Rol::$ADMINISTRADOR, Rol::$SUPER_USUARIO),
             ),
             array('allow', // allow admin user to perform 'admin' and 'delete' actions
                 'actions' => array('admin', 'delete'),
-                'roles' => array(Rol::$ADMINISTRADOR, Rol::$ALUMNO, Rol::$SUPER_USUARIO),
+                'roles' => array(Rol::$ADMINISTRADOR,  Rol::$SUPER_USUARIO),
             ),
             array('deny', // deny all users
                 'users' => array('*'),
