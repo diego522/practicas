@@ -38,6 +38,8 @@ class Estado extends CActiveRecord {
     public static $POSTULACION_CUPO_PENDIENTE_DE_CONFIRMACION = 7;
     public static $POSTULACION_CUPO_ASIGNADO = 8;
     public static $POSTULACION_CUPO_RECHAZADO = 9;
+    
+    public static $PRACTICA_PROFESIONAL_BORRADOR=15;
 
     public static function model($className = __CLASS__) {
         return parent::model($className);

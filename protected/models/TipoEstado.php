@@ -15,6 +15,7 @@ class TipoEstado extends CActiveRecord {
     public static $PPERIODO_PRACTICA=1;
     public static $POSTULACION_A_PRACTICA=2;
     public static $POSTULACION_A_CUPO=3;
+    public static $PRACTICA_PROFESIONAL=4;
 
     /**
      * Returns the static model of the specified AR class.

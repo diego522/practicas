@@ -85,7 +85,7 @@ $form = $this->beginWidget('CActiveForm', array(
                     <div class="row buttons">
                         <?php
                         echo CHtml::button('Confirmar', array('submit' => array('postulacionAPractica/confirmar', 'id' => $model->id_inscripcion_practica),
-                            'confirm' => 'Seguro desea confirmar el cupo?'
+                            'confirm' => 'Seguro desea confirmar la asignacióm hecha por el sistema?'
                         ));
                         ?>
                     </div>
@@ -94,7 +94,7 @@ $form = $this->beginWidget('CActiveForm', array(
                     <div class="row buttons">
                         <?php
                         echo CHtml::button('Rechazar', array('submit' => array('postulacionAPractica/rechazar', 'id' => $model->id_inscripcion_practica),
-                            'confirm' => 'Seguro desea rechazar el Cupo?'
+                            'confirm' => 'Seguro desea rechazar la asignación hecha por el sistema?'
                         ));
                         ?>
                     </div>

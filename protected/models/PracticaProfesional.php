@@ -31,114 +31,149 @@
  * @property Estado $idEstadoFk
  * @property VisitaPracticaProfesional[] $visitaPracticaProfesionals
  */
-class PracticaProfesional extends CActiveRecord
-{
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return PracticaProfesional the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
+class PracticaProfesional extends CActiveRecord {
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'practica_profesional';
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return PracticaProfesional the static model class
+     */
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('id_padre_practica_profesional, id_alumno_fk, id_empresa_fk, id_profesor_revisor_fk, id_profesor_visitante_fk, fecha_creacion, id_supervisor_empresa_fk, id_estado_fk, id_campus_fk', 'required'),
-			array('id_padre_practica_profesional, id_alumno_fk, id_empresa_fk, id_profesor_revisor_fk, id_profesor_visitante_fk, id_supervisor_empresa_fk, id_estado_fk, id_campus_fk', 'numerical', 'integerOnly'=>true),
-			array('fecha_inicio_practica, fecha_termino_practica, fecha_notifica_finalizacion', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id_practica_profesional, id_padre_practica_profesional, id_alumno_fk, id_empresa_fk, id_profesor_revisor_fk, id_profesor_visitante_fk, fecha_creacion, fecha_inicio_practica, fecha_termino_practica, id_supervisor_empresa_fk, id_estado_fk, fecha_notifica_finalizacion, id_campus_fk', 'safe', 'on'=>'search'),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName() {
+        return 'practica_profesional';
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'evaluacionEmpresas' => array(self::HAS_MANY, 'EvaluacionEmpresa', 'id_practica_profesional_fk'),
-			'idCampusFk' => array(self::BELONGS_TO, 'Campus', 'id_campus_fk'),
-			'idPadrePracticaProfesional' => array(self::BELONGS_TO, 'PracticaProfesional', 'id_padre_practica_profesional'),
-			'practicaProfesionals' => array(self::HAS_MANY, 'PracticaProfesional', 'id_padre_practica_profesional'),
-			'idAlumnoFk' => array(self::BELONGS_TO, 'Usuario', 'id_alumno_fk'),
-			'idEmpresaFk' => array(self::BELONGS_TO, 'Empresa', 'id_empresa_fk'),
-			'idProfesorRevisorFk' => array(self::BELONGS_TO, 'Usuario', 'id_profesor_revisor_fk'),
-			'idProfesorVisitanteFk' => array(self::BELONGS_TO, 'Usuario', 'id_profesor_visitante_fk'),
-			'idSupervisorEmpresaFk' => array(self::BELONGS_TO, 'Usuario', 'id_supervisor_empresa_fk'),
-			'idEstadoFk' => array(self::BELONGS_TO, 'Estado', 'id_estado_fk'),
-			'visitaPracticaProfesionals' => array(self::HAS_MANY, 'VisitaPracticaProfesional', 'id_practica_profesional_fk'),
-		);
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules() {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('id_empresa_fk', 'required'),
+            array('id_padre_practica_profesional, id_alumno_fk, id_empresa_fk, id_profesor_revisor_fk, id_profesor_visitante_fk, id_supervisor_empresa_fk, id_estado_fk, id_campus_fk', 'numerical', 'integerOnly' => true),
+            array('fecha_inicio_practica, fecha_termino_practica, fecha_notifica_finalizacion', 'safe'),
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            array('id_practica_profesional, id_padre_practica_profesional, id_alumno_fk, id_empresa_fk, id_profesor_revisor_fk, id_profesor_visitante_fk, fecha_creacion, fecha_inicio_practica, fecha_termino_practica, id_supervisor_empresa_fk, id_estado_fk, fecha_notifica_finalizacion, id_campus_fk', 'safe', 'on' => 'search'),
+        );
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'id_practica_profesional' => 'Id Practica Profesional',
-			'id_padre_practica_profesional' => 'Id Padre Practica Profesional',
-			'id_alumno_fk' => 'Id Alumno Fk',
-			'id_empresa_fk' => 'Id Empresa Fk',
-			'id_profesor_revisor_fk' => 'Id Profesor Revisor Fk',
-			'id_profesor_visitante_fk' => 'Id Profesor Visitante Fk',
-			'fecha_creacion' => 'Fecha Creacion',
-			'fecha_inicio_practica' => 'Fecha Inicio Practica',
-			'fecha_termino_practica' => 'Fecha Termino Practica',
-			'id_supervisor_empresa_fk' => 'Id Supervisor Empresa Fk',
-			'id_estado_fk' => 'Id Estado Fk',
-			'fecha_notifica_finalizacion' => 'Fecha Notifica Finalizacion',
-			'id_campus_fk' => 'Id Campus Fk',
-		);
-	}
+    /**
+     * @return array relational rules.
+     */
+    public function relations() {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'evaluacionEmpresas' => array(self::HAS_MANY, 'EvaluacionEmpresa', 'id_practica_profesional_fk'),
+            'idCampusFk' => array(self::BELONGS_TO, 'Campus', 'id_campus_fk'),
+            'idPadrePracticaProfesional' => array(self::BELONGS_TO, 'PracticaProfesional', 'id_padre_practica_profesional'),
+            'practicaProfesionals' => array(self::HAS_MANY, 'PracticaProfesional', 'id_padre_practica_profesional'),
+            'idAlumnoFk' => array(self::BELONGS_TO, 'Usuario', 'id_alumno_fk'),
+            'idEmpresaFk' => array(self::BELONGS_TO, 'Empresa', 'id_empresa_fk'),
+            'idProfesorRevisorFk' => array(self::BELONGS_TO, 'Usuario', 'id_profesor_revisor_fk'),
+            'idProfesorVisitanteFk' => array(self::BELONGS_TO, 'Usuario', 'id_profesor_visitante_fk'),
+            'idSupervisorEmpresaFk' => array(self::BELONGS_TO, 'Usuario', 'id_supervisor_empresa_fk'),
+            'idEstadoFk' => array(self::BELONGS_TO, 'Estado', 'id_estado_fk'),
+            'visitaPracticaProfesionals' => array(self::HAS_MANY, 'VisitaPracticaProfesional', 'id_practica_profesional_fk'),
+        );
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels() {
+        return array(
+            'id_practica_profesional' => 'Id Practica Profesional',
+            'id_padre_practica_profesional' => 'Id Padre Practica Profesional',
+            'id_alumno_fk' => 'Id Alumno Fk',
+            'id_empresa_fk' => 'Id Empresa Fk',
+            'id_profesor_revisor_fk' => 'Id Profesor Revisor Fk',
+            'id_profesor_visitante_fk' => 'Id Profesor Visitante Fk',
+            'fecha_creacion' => 'Fecha Creacion',
+            'fecha_inicio_practica' => 'Fecha Inicio Practica',
+            'fecha_termino_practica' => 'Fecha Termino Practica',
+            'id_supervisor_empresa_fk' => 'Id Supervisor Empresa Fk',
+            'id_estado_fk' => 'Id Estado Fk',
+            'fecha_notifica_finalizacion' => 'Fecha Notifica Finalizacion',
+            'id_campus_fk' => 'Id Campus Fk',
+        );
+    }
 
-		$criteria=new CDbCriteria;
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search() {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
-		$criteria->compare('id_practica_profesional',$this->id_practica_profesional);
-		$criteria->compare('id_padre_practica_profesional',$this->id_padre_practica_profesional);
-		$criteria->compare('id_alumno_fk',$this->id_alumno_fk);
-		$criteria->compare('id_empresa_fk',$this->id_empresa_fk);
-		$criteria->compare('id_profesor_revisor_fk',$this->id_profesor_revisor_fk);
-		$criteria->compare('id_profesor_visitante_fk',$this->id_profesor_visitante_fk);
-		$criteria->compare('fecha_creacion',$this->fecha_creacion,true);
-		$criteria->compare('fecha_inicio_practica',$this->fecha_inicio_practica,true);
-		$criteria->compare('fecha_termino_practica',$this->fecha_termino_practica,true);
-		$criteria->compare('id_supervisor_empresa_fk',$this->id_supervisor_empresa_fk);
-		$criteria->compare('id_estado_fk',$this->id_estado_fk);
-		$criteria->compare('fecha_notifica_finalizacion',$this->fecha_notifica_finalizacion,true);
-		$criteria->compare('id_campus_fk',$this->id_campus_fk);
+        $criteria = new CDbCriteria;
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
+        $criteria->compare('id_practica_profesional', $this->id_practica_profesional);
+        $criteria->compare('id_padre_practica_profesional', $this->id_padre_practica_profesional);
+        $criteria->compare('id_alumno_fk', $this->id_alumno_fk);
+        $criteria->compare('id_empresa_fk', $this->id_empresa_fk);
+        $criteria->compare('id_profesor_revisor_fk', $this->id_profesor_revisor_fk);
+        $criteria->compare('id_profesor_visitante_fk', $this->id_profesor_visitante_fk);
+        $criteria->compare('fecha_creacion', $this->fecha_creacion, true);
+        $criteria->compare('fecha_inicio_practica', $this->fecha_inicio_practica, true);
+        $criteria->compare('fecha_termino_practica', $this->fecha_termino_practica, true);
+        $criteria->compare('id_supervisor_empresa_fk', $this->id_supervisor_empresa_fk);
+        $criteria->compare('id_estado_fk', $this->id_estado_fk);
+        $criteria->compare('fecha_notifica_finalizacion', $this->fecha_notifica_finalizacion, true);
+        $criteria->compare('id_campus_fk', $this->id_campus_fk);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
+    public function beforeSave() {
+        if ($this->isNewRecord) {
+            $this->fecha_creacion = new CDbExpression('NOW()');
+            $this->id_alumno_fk=Yii::app()->user->id;
+            $this->id_campus_fk=Yii::app()->user->getState('campus');
+            $this->id_estado_fk=  Estado::$PRACTICA_PROFESIONAL_BORRADOR;
+        } else {
+            $newDate = DateTime::createFromFormat('d/m/Y', $this->fecha_creacion);
+            if ($newDate != null) {
+                $this->fecha_creacion = $newDate->format('Y-m-d');
+            }
+            $newDate1 = DateTime::createFromFormat('d/m/Y', $this->fecha_inicio_practica);
+            if ($newDate1 != null) {
+                $this->fecha_inicio_practica = $newDate1->format('Y-m-d');
+            }
+            $newDate2 = DateTime::createFromFormat('d/m/Y', $this->fecha_notifica_finalizacion);
+            if ($newDate2 != null) {
+                $this->fecha_notifica_finalizacion = $newDate2->format('Y-m-d');
+            }
+            $newDate3 = DateTime::createFromFormat('d/m/Y', $this->fecha_termino_practica);
+            if ($newDate3 != null) {
+                $this->fecha_termino_practica = $newDate3->format('Y-m-d');
+            }
+            $model=new PracticaProfesional();
+            $model->attributes=  $this->attributes;
+            $model->id_padre_practica_profesional=  $this->id_practica_profesional;
+            $model->save();
+        }
+        return parent::beforeSave();
+    }
+
+    protected function afterFind() {
+        // convert to display format
+        $this->fecha_creacion != NULL ? $this->fecha_creacion = Yii::app()->dateFormatter->format("dd/MM/y", strtotime($this->fecha_creacion)) : '';
+        $this->fecha_inicio_practica != NULL ? $this->fecha_inicio_practica = Yii::app()->dateFormatter->format("dd/MM/y", strtotime($this->fecha_inicio_practica)) : '';
+        $this->fecha_notifica_finalizacion != NULL ? $this->fecha_notifica_finalizacion = Yii::app()->dateFormatter->format("dd/MM/y", strtotime($this->fecha_notifica_finalizacion)) : '';
+        $this->fecha_termino_practica != NULL ? $this->fecha_termino_practica = Yii::app()->dateFormatter->format("dd/MM/y", strtotime($this->fecha_termino_practica)) : '';
+        parent::afterFind();
+    }
+
 }

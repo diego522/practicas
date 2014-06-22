@@ -115,7 +115,7 @@ class PostulacionAPracticaController extends Controller {
                                                 //email para profesor guia
                                                 $this->SendMail('Asignación de Cupo Para Práctica Profesional', '
                                        Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica sobre PRE-ASIGNACIÓN del cupo para práctica profesional'
-                                                        . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema.'
+                                                        . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema en "Postulaciones a Práctica > Mis Postulaciones > Seleccionar la pendiente de confirmación > Confirmar".'
                                                         , $correos);
                                                 //Yii::app()->user->setFlash('success', "Proyecto Notificado con éxito.");
                                             }
@@ -143,6 +143,8 @@ class PostulacionAPracticaController extends Controller {
                             }
                         }
                         Yii::app()->user->setFlash('success', "Se han asignado " . $contadorDeAsignados . " prácticas y han sido rechadas " . $contadorDeQuedaronSinCupo . " por falta de cupos.");
+
+                        //return;
                     } else {//faltan evaluaciones por hacer
                         Yii::app()->user->setFlash('error', "Faltan postulaciones por evaluar");
                     }
@@ -154,9 +156,13 @@ class PostulacionAPracticaController extends Controller {
             }
         }
         $model->scenario = 'search';
-        $this->render('asignacionDePracticas', array(
-            'model' => new PostulacionAPractica('search'),
-        ));
+        $model->filtro_evaluacion = NULL;
+//        $this->render('admin', array(
+//            'model' => $model,
+//        ));
+
+        $this->redirect(array('admin',));
+        // $this->redirect(array('view', 'id' => $model->id_inscripcion_practica));
     }
 
     /**
@@ -212,10 +218,13 @@ class PostulacionAPracticaController extends Controller {
                     $i->id_estado_fk = Estado::$POSTULACION_CUPO_ASIGNADO;
                     $model->save();
                     $i->save();
-                    //creación de la práctica profesional
-                    //+++++++++++++++++++++++++++++++++++++
-                    //+++++++++++++++++++++++++++++++++++++
-                    Yii::app()->user->setFlash('success', 'Práctica profesional creada correctamente');
+                    $practicaProfesional = new PracticaProfesional();
+                    $practicaProfesional->id_empresa_fk = $i->idCupoPracticaFk->id_empresa_fk;
+                    if ($practicaProfesional->save()) {
+                        Yii::app()->user->setFlash('success', 'Práctica profesional creada correctamente');
+                    } else {
+                        Yii::app()->user->setFlash('error', 'La Práctica no puede ser creada');
+                    }
                     break;
                 }
             }
@@ -326,82 +335,86 @@ class PostulacionAPracticaController extends Controller {
     public function actionEnviarPostulacion($id) {
         $model = $this->loadModel($id);
         if ($model->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
-            $model->id_estado_fk = Estado::$POSTULACION_PRACTICA_ENVIADA;
-            $model->save();
-            echo "Postulación Enviada";
+            if ($model->id_adjunto_fk != NULL) {
+                $model->id_estado_fk = Estado::$POSTULACION_PRACTICA_ENVIADA;
+                $model->save();
+                echo "Postulación Enviada";
+            } else {
+                echo "<b>Debe adjuntar su curriculum</b>";
+            }
         } else {
-            echo "La postulación no puede ser enviada porque no se encuentra en estado Borrador";
+            echo "<b>La postulación no puede ser enviada porque no se encuentra en estado Borrador<b>";
         }
     }
 
     public function actionInscribirCupo($idc) {
         $idcA = explode("-", $idc);
-        if(count($idcA)>0){
-        foreach ($idcA as $idCupo) {
-            echo "--------------------------------------------------------------------------------------------------------------------------------<br/>";
-            $cupo = CupoPractica::model()->findByPk($idCupo);
-            $idu = Yii::app()->user->id;
-            $postulacion = PostulacionAPractica::model()->find('id_alumno=:ida and id_periodo_practica_fk=:idp', array(':ida' => $idu, ':idp' => $cupo->id_periodo_practica_fk));
-            //var_dump($postulacion);
-            if ($postulacion == NULL || ($postulacion != NULL && ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADO || $postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS))) {
-                //nueva postulación
-                echo "post null";
-                $postulacion = new PostulacionAPractica();
-                $postulacion->id_alumno = $idu;
-                $postulacion->id_periodo_practica_fk = $cupo->id_periodo_practica_fk;
-                $postulacion->id_estado_fk = Estado::$POSTULACION_PRACTICA_BORRADOR;
-                if ($postulacion->save()) {
-                    //es el primer cupo que inscribe, por defecto se le asignara de manera automática el cupo
-                    $inscripcion = new InscripcionCupoPractica();
-                    $inscripcion->id_cupo_practica_fk = $cupo->id_cupo_practica;
-                    //se pasa la id de la postulacion
-                    $inscripcion->id_postulacion_practica_fk = $postulacion->id_inscripcion_practica;
-                    $inscripcion->id_estado_fk = Estado::$POSTULACION_CUPO_INSCRITO;
-                    $inscripcion->prioridad = 1;
-                    if ($inscripcion->save()) {
-                        Yii::app()->user->setFlash('success', 'Postulación creada correctamente');
-                        // $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
-                    } else {
-                        throw new CHttpException(500, 'El cupo no pudo ser guardado.');
-                    }
-                } else {
-                    //no se pudo guardar la postulación
-                    throw new CHttpException(500, 'La postulación no pudo ser guardada.');
-                }
-            } else {
-                echo "NO NIL";
-                //posee postulación anterior para el periodo seleccionado
-                if ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
-                    $inscripcionPrevia = InscripcionCupoPractica::model()->find('id_postulacion_practica_fk=:ipp and id_cupo_practica_fk=:icp', array(':ipp' => $postulacion->id_inscripcion_practica, ':icp' => $cupo->id_cupo_practica));
-                    if ($inscripcionPrevia == null) {
+        if (count($idcA) > 0) {
+            foreach ($idcA as $idCupo) {
+                echo "--------------------------------------------------------------------------------------------------------------------------------<br/>";
+                $cupo = CupoPractica::model()->findByPk($idCupo);
+                $idu = Yii::app()->user->id;
+                $postulacion = PostulacionAPractica::model()->find('id_alumno=:ida and id_periodo_practica_fk=:idp', array(':ida' => $idu, ':idp' => $cupo->id_periodo_practica_fk));
+                //var_dump($postulacion);
+                if ($postulacion == NULL || ($postulacion != NULL && ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADO || $postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_RECHAZADA_POR_FALTA_DE_CUPOS))) {
+                    //nueva postulación
+                    echo "post null";
+                    $postulacion = new PostulacionAPractica();
+                    $postulacion->id_alumno = $idu;
+                    $postulacion->id_periodo_practica_fk = $cupo->id_periodo_practica_fk;
+                    $postulacion->id_estado_fk = Estado::$POSTULACION_PRACTICA_BORRADOR;
+                    if ($postulacion->save()) {
+                        //es el primer cupo que inscribe, por defecto se le asignara de manera automática el cupo
                         $inscripcion = new InscripcionCupoPractica();
                         $inscripcion->id_cupo_practica_fk = $cupo->id_cupo_practica;
                         //se pasa la id de la postulacion
                         $inscripcion->id_postulacion_practica_fk = $postulacion->id_inscripcion_practica;
                         $inscripcion->id_estado_fk = Estado::$POSTULACION_CUPO_INSCRITO;
-                        //calculo de la siguiente prioridad
-                        $max = 1;
-                        foreach ($postulacion->inscripcionCupoPracticas as $i) {
-                            if ($i->prioridad >= $max) {
-                                $max = $i->prioridad;
-                            }
-                        }
-                        $inscripcion->prioridad = ++$max;
+                        $inscripcion->prioridad = 1;
                         if ($inscripcion->save()) {
-                            Yii::app()->user->setFlash('success', 'Cupo inscrito correctamente');
+                            Yii::app()->user->setFlash('success', 'Postulación creada correctamente');
                             // $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
                         } else {
-                            // throw new CHttpException(500, 'El cupo no pudo ser guardado.');
+                            throw new CHttpException(500, 'El cupo no pudo ser guardado.');
                         }
                     } else {
-                        Yii::app()->user->setFlash('error', 'Ya se había postulado a este cupo');
+                        //no se pudo guardar la postulación
+                        throw new CHttpException(500, 'La postulación no pudo ser guardada.');
                     }
                 } else {
-                    Yii::app()->user->setFlash('error', 'La postulación debe encontrarse en borrador para poder inscribir centros de práctica.');
+                    echo "NO NIL";
+                    //posee postulación anterior para el periodo seleccionado
+                    if ($postulacion->id_estado_fk == Estado::$POSTULACION_PRACTICA_BORRADOR) {
+                        $inscripcionPrevia = InscripcionCupoPractica::model()->find('id_postulacion_practica_fk=:ipp and id_cupo_practica_fk=:icp', array(':ipp' => $postulacion->id_inscripcion_practica, ':icp' => $cupo->id_cupo_practica));
+                        if ($inscripcionPrevia == null) {
+                            $inscripcion = new InscripcionCupoPractica();
+                            $inscripcion->id_cupo_practica_fk = $cupo->id_cupo_practica;
+                            //se pasa la id de la postulacion
+                            $inscripcion->id_postulacion_practica_fk = $postulacion->id_inscripcion_practica;
+                            $inscripcion->id_estado_fk = Estado::$POSTULACION_CUPO_INSCRITO;
+                            //calculo de la siguiente prioridad
+                            $max = 1;
+                            foreach ($postulacion->inscripcionCupoPracticas as $i) {
+                                if ($i->prioridad >= $max) {
+                                    $max = $i->prioridad;
+                                }
+                            }
+                            $inscripcion->prioridad = ++$max;
+                            if ($inscripcion->save()) {
+                                Yii::app()->user->setFlash('success', 'Cupo inscrito correctamente');
+                                // $this->redirect(array('view', 'id' => $postulacion->id_inscripcion_practica));
+                            } else {
+                                // throw new CHttpException(500, 'El cupo no pudo ser guardado.');
+                            }
+                        } else {
+                            Yii::app()->user->setFlash('error', 'Ya se había postulado a este cupo');
+                        }
+                    } else {
+                        Yii::app()->user->setFlash('error', 'La postulación debe encontrarse en borrador para poder inscribir centros de práctica.');
+                    }
                 }
             }
-        }
-        }else{
+        } else {
             Yii::app()->user->setFlash('error', 'Debe seleccionar al menos un cupo para inscribir.');
             $this->redirect(array('index',));
             return;

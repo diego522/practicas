@@ -57,7 +57,7 @@ class PeriodoPracticaController extends Controller {
      * muestra los periodos disponibles en pantalla
      */
     public function actionPeriodosDisponibles() {
-        
+        $this->layout=NULL;
         $arrayDePeriodosDisponibles = PeriodoPractica::obtienePeriodoActual();
         if ($arrayDePeriodosDisponibles > 0) {
             $model = new PeriodoPractica('search');

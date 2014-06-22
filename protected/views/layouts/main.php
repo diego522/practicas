@@ -72,7 +72,7 @@
                         array('label' => 'Postulaciones a Práctica', 'items' => array(
                                 array('label' => 'Prácticas Disponibles', 'url' => array('periodoPractica/periodosDisponibles'),),
                                 array('label' => 'Mis Postulaciones', 'url' => array('postulacionAPractica/index'),),
-                                array('label' => 'Proponer Prácticas', 'url' => array('postulacionAPractica/asignarPracticas'),),
+                               // array('label' => 'Proponer Asignación de Prácticas', 'url' => array('postulacionAPractica/asignarPracticas'),),
                                 array('label' => 'Administrar Postulaciones', 'url' => array('postulacionAPractica/admin'),),
                             ), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO, Rol::$PROFESOR, Rol::$ADMINISTRADOR))),
                         array('label' => 'Administración', 'items' => array(
