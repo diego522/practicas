@@ -10,6 +10,7 @@ return array(
     'language' => 'es',
     // preloading 'log' component
     'preload' => array('log'),
+    'id' => 'localhost',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',

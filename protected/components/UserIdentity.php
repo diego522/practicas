@@ -28,8 +28,8 @@ class UserIdentity extends CUserIdentity {
         ini_set('soap.wsdl_cache_enable', 0);
         ini_set('soap.wsdl_cache_ttl', 0);
         try {
-//            $client = new SoapClient(Yii::app()->params['urlWebService']);
-//             $client->traeUsuarioDesdeSI($this->username, $arreglo[1]);
+            $client = new SoapClient(Yii::app()->params['urlWebService']);
+            $client->traeUsuarioDesdeSI($this->username, $arreglo[1]);
 //            //echo $client->prueba();
         } catch (Exception $r) {
             //echo $r;
@@ -50,8 +50,8 @@ class UserIdentity extends CUserIdentity {
             $this->setState('rol', $usuarioLocal->id_rol);
             $this->setState('rol_real', $usuarioLocal->id_rol);
             //cargar opciones del campus
-            
-         
+
+
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;

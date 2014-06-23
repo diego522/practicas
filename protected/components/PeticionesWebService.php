@@ -59,6 +59,23 @@ class PeticionesWebService {
     /**
      * A obtieneParametrosGenerales method.
      * @param string campus
+     * @return mixed[] datos
+     */
+    public static function obtieneNoticias($campus) {
+        ini_set('soap.wsdl_cache_enable', 0);
+        ini_set('soap.wsdl_cache_ttl', 0);
+        try {
+            $client = new SoapClient(Yii::app()->params['urlWebService']);
+            $categoria = "3"; //actividad de titulacion
+            return $client->obtieneNoticia($categoria, $campus);
+        } catch (Exception $r) {
+            return $r;
+        }
+    }
+
+    /**
+     * A obtieneParametrosGenerales method.
+     * @param string campus
      * @return string
      */
     public static function obtieneCorreoSecretaria($campus) {
@@ -249,8 +266,8 @@ class PeticionesWebService {
             $resutadoEnArray = array();
             $arregloDePlanes = explode(',', $plan);
             foreach ($arregloDePlanes as $p) {
-                $cod="29057";
-                $plan="1";
+                $cod = "29057";
+                $plan = "1";
                 $resutadoEnArray[] = $client->obtieneMallaDeLaCarrera(utf8_encode($cod), utf8_encode($plan));
             }
             return $resutadoEnArray;
