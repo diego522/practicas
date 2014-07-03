@@ -37,7 +37,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
         ),
         array('name' => 'remunerado', 'value' => '$data->remunerado==1?\'Si\':\'No\'', 'filter' => false),
         array('name' => 'cantidad', 'filter' => false),
-        array('header' => 'Potulantes', 'value' => array($this, 'gridPotulantes')),
+        array('header' => 'Postulantes', 'value' => array($this, 'gridPotulantes')),
         array(
             "header" => "Postular",
             'class' => 'CCheckBoxColumn',
