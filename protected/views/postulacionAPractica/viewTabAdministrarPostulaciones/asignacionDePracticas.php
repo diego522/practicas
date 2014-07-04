@@ -19,8 +19,8 @@
     </div>
     <div class="row buttons">
         <?php
-        echo CHtml::button('Asignar Prácticas', array('submit' => array('asignarPracticas'),
-            'confirm' => 'Esta acción verificará que todas las postulaciones enviadas del periodo seleccionado se encuentren evaluadas. Desea continuar?')
+        echo CHtml::button('Asignar y Notificar Prácticas', array('submit' => array('asignarPracticas'),
+            'confirm' => 'Esta acción verificará que todas las postulaciones enviadas del periodo seleccionado se encuentren evaluadas y notificará a los alumnos. Desea continuar?')
         );
         ?>
     </div>

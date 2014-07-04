@@ -3,7 +3,7 @@
 /* @var $model PostulacionAPractica */
 
 $this->breadcrumbs = array(
-    'Postulaciones a prácticas' => array('admin'),
+    'Postulaciones a Prácticas' => array('admin'),
     'Administrar Postulaciones',
 );
 
@@ -13,7 +13,7 @@ $this->breadcrumbs = array(
 //);
 ?>
 
-<h1>Administrar Postulaciones a Practicas</h1>
+<h1>Administrar Postulaciones a Prácticas</h1>
 
 <?php
 $this->widget('CTabView', array(

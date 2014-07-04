@@ -3,7 +3,7 @@
 /* @var $model PostulacionAPractica */
 /* @var $form CActiveForm */
 ?>
-
+<h1>Evaluar postulación del alumno</h1>
 <div class="form">
 
     <?php

@@ -77,8 +77,8 @@
                             ), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ALUMNO, Rol::$ADMINISTRADOR))),
                         array('label' => 'Administración', 'items' => array(
                                 array('label' => 'Administrar Centros de Práctica', 'url' => array('empresa/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
-                                array('label' => 'Administrar Periodos Práctica', 'url' => array('periodoPractica/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
-                                array('label' => 'Administrar Cupos Prácticas', 'url' => array('cupoPractica/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
+                                array('label' => 'Administrar Periodos de Prácticas', 'url' => array('periodoPractica/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
+                                array('label' => 'Administrar Cupos de Prácticas', 'url' => array('cupoPractica/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
                             // array('label' => 'Cambio de Rol', 'url' => array('rol/cambioRol'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO, Rol::$ADMINISTRADOR))),
                             // array('label' => 'Planificaciones', 'url' => array('planificacion/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO))),
                             // array('label' => 'Estados', 'url' => array('estado/admin'), 'visible' => Yii::app()->user->checkeaAccesoMasivo(array(Rol::$SUPER_USUARIO))),

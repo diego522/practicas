@@ -113,10 +113,10 @@ class PostulacionAPracticaController extends Controller {
                                                 // $correos[] = PeticionesWebService::obtieneCorreoSecretaria(Yii::app()->user->getState('campus'));
                                                 $correos[] = $l->idAlumno->email;
                                                 //email para profesor guia
-                                                $this->SendMail('Asignación de Cupo Para Práctica Profesional', '
-                                       Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica sobre PRE-ASIGNACIÓN del cupo para práctica profesional'
-                                                        . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema en "Postulaciones a Práctica > Mis Postulaciones > Seleccionar la pendiente de confirmación > Confirmar".'
-                                                        , $correos);
+//                                                $this->SendMail('Asignación de Cupo Para Práctica Profesional', '
+//                                       Estimado(a) ' . $l->idAlumno->nombre . ', este correo le notifica sobre PRE-ASIGNACIÓN del cupo para práctica profesional'
+//                                                        . ' en ' . $i->idCupoPracticaFk->idEmpresaFk->nombre_mas_ciudad . '. Para confirmar la asignación se ruega entrar al sistema en "Postulaciones a Práctica > Mis Postulaciones > Seleccionar la pendiente de confirmación > Confirmar".'
+//                                                        , $correos);
                                                 //Yii::app()->user->setFlash('success', "Proyecto Notificado con éxito.");
                                             }
                                         }
@@ -220,6 +220,7 @@ class PostulacionAPracticaController extends Controller {
                     $i->save();
                     $practicaProfesional = new PracticaProfesional();
                     $practicaProfesional->id_empresa_fk = $i->idCupoPracticaFk->id_empresa_fk;
+                    $practicaProfesional->id_periodo_fk=$model->id_periodo_practica_fk;
                     if ($practicaProfesional->save()) {
                         Yii::app()->user->setFlash('success', 'Práctica profesional creada correctamente');
                     } else {

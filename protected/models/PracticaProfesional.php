@@ -17,10 +17,11 @@
  * @property integer $id_estado_fk
  * @property string $fecha_notifica_finalizacion
  * @property integer $id_campus_fk
+ * @property integer $id_periodo_fk
  *
  * The followings are the available model relations:
  * @property EvaluacionEmpresa[] $evaluacionEmpresas
- * @property Campus $idCampusFk
+ * @property FkPeriodoPractica $idPeriodoFk
  * @property PracticaProfesional $idPadrePracticaProfesional
  * @property PracticaProfesional[] $practicaProfesionals
  * @property Usuario $idAlumnoFk
@@ -29,6 +30,7 @@
  * @property Usuario $idProfesorVisitanteFk
  * @property Usuario $idSupervisorEmpresaFk
  * @property Estado $idEstadoFk
+ *  @property Campus $idCampusFk
  * @property VisitaPracticaProfesional[] $visitaPracticaProfesionals
  */
 class PracticaProfesional extends CActiveRecord {
@@ -72,6 +74,7 @@ class PracticaProfesional extends CActiveRecord {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+            'idPeriodoFk' => array(self::BELONGS_TO, 'PeriodoPractica', 'id_periodo_fk'),
             'evaluacionEmpresas' => array(self::HAS_MANY, 'EvaluacionEmpresa', 'id_practica_profesional_fk'),
             'idCampusFk' => array(self::BELONGS_TO, 'Campus', 'id_campus_fk'),
             'idPadrePracticaProfesional' => array(self::BELONGS_TO, 'PracticaProfesional', 'id_padre_practica_profesional'),
@@ -139,9 +142,9 @@ class PracticaProfesional extends CActiveRecord {
     public function beforeSave() {
         if ($this->isNewRecord) {
             $this->fecha_creacion = new CDbExpression('NOW()');
-            $this->id_alumno_fk=Yii::app()->user->id;
-            $this->id_campus_fk=Yii::app()->user->getState('campus');
-            $this->id_estado_fk=  Estado::$PRACTICA_PROFESIONAL_BORRADOR;
+            $this->id_alumno_fk = Yii::app()->user->id;
+            $this->id_campus_fk = Yii::app()->user->getState('campus');
+            $this->id_estado_fk = Estado::$PRACTICA_PROFESIONAL_BORRADOR;
         } else {
             $newDate = DateTime::createFromFormat('d/m/Y', $this->fecha_creacion);
             if ($newDate != null) {
@@ -159,9 +162,9 @@ class PracticaProfesional extends CActiveRecord {
             if ($newDate3 != null) {
                 $this->fecha_termino_practica = $newDate3->format('Y-m-d');
             }
-            $model=new PracticaProfesional();
-            $model->attributes=  $this->attributes;
-            $model->id_padre_practica_profesional=  $this->id_practica_profesional;
+            $model = new PracticaProfesional();
+            $model->attributes = $this->attributes;
+            $model->id_padre_practica_profesional = $this->id_practica_profesional;
             $model->save();
         }
         return parent::beforeSave();

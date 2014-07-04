@@ -24,6 +24,8 @@
  */
 class CupoPractica extends CActiveRecord {
 
+    public $filtro_ciudad;
+
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -52,7 +54,7 @@ class CupoPractica extends CActiveRecord {
             array('detalle_remuneracion, funcion_a_cumplir, habilidades_requeridas, duracion, otros_beneficios', 'length', 'max' => 2000),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id_cupo_practica, cantidad, remunerado, detalle_remuneracion, funcion_a_cumplir, habilidades_requeridas, duracion, otros_beneficios, id_empresa_fk, id_periodo_practica_fk, id_usuario_creador_fk', 'safe', 'on' => 'search'),
+            array('id_cupo_practica, cantidad, filtro_ciudad,remunerado, detalle_remuneracion, funcion_a_cumplir, habilidades_requeridas, duracion, otros_beneficios, id_empresa_fk, id_periodo_practica_fk, id_usuario_creador_fk', 'safe', 'on' => 'search'),
         );
     }
 
@@ -87,6 +89,7 @@ class CupoPractica extends CActiveRecord {
         return array(
             'id_cupo_practica' => 'Id Cupo Practica',
             'cantidad' => 'Cupos',
+            'filtro_ciudad' => 'Ciudad',
             'remunerado' => 'Remunerado',
             'detalle_remuneracion' => 'Detalle remuneración',
             'funcion_a_cumplir' => 'Funcion a cumplir',
@@ -121,10 +124,14 @@ class CupoPractica extends CActiveRecord {
         $criteria->compare('id_periodo_practica_fk', $this->id_periodo_practica_fk);
         $criteria->compare('id_usuario_creador_fk', $this->id_usuario_creador_fk);
         $criteria->addCondition('id_periodo_practica_fk in (select id_periodo_practica from periodo_practica where id_campus_fk=' . Yii::app()->user->getState('campus') . ')');
+        if ($this->filtro_ciudad != NULL) {
+            $criteria->addCondition(' id_empresa_fk in (select id_empresa from empresa where id_cuidad_fk='.$this->filtro_ciudad.' )');
+        }
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
         ));
     }
+
     public function searchCupoPracticaDisponible($idp) {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
@@ -142,12 +149,13 @@ class CupoPractica extends CActiveRecord {
         $criteria->compare('id_empresa_fk', $this->id_empresa_fk);
         //$criteria->compare('id_periodo_practica_fk', $this->id_periodo_practica_fk);
         $criteria->compare('id_usuario_creador_fk', $this->id_usuario_creador_fk);
-        $criteria->addCondition('id_periodo_practica_fk ='.$idp);
+        $criteria->addCondition('id_periodo_practica_fk =' . $idp);
         $criteria->addCondition('id_cupo_practica not in (select id_cupo_practica_fk from inscripcion_cupo_practica where id_postulacion_practica_fk in '
-                . '(select id_inscripcion_practica from postulacion_a_practica where id_alumno='.Yii::app()->user->id.'))');
+                . '(select id_inscripcion_practica from postulacion_a_practica where id_alumno=' . Yii::app()->user->id . '))');
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'pagination'=>false,  
+            'pagination' => false,
         ));
     }
+
 }

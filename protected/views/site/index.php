@@ -3,7 +3,7 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-<!--
+
 
 <div id="barraderecha" style="width:350px; float:right;"> 
 
@@ -12,29 +12,29 @@ $this->pageTitle=Yii::app()->name;
 
         <table>
             <tr>
-                <td><?php //echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/doc_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Plantilla_Proyecto_Titulo_de_Desarrollo_de_Sw-_v11.doc"); ?></td>
-                <td><?php //echo CHtml::link("Plantilla Informe de Actividad de Titulación", Yii::app()->request->baseUrl . "/documentacion/Plantilla_Proyecto_Titulo_de_Desarrollo_de_Sw-_v11.doc"); ?></td>
+                <td><?php echo CHtml::link("<img align='middle' title='Descarga esta vista en PDF' src='" . Yii::app()->request->baseUrl . "/images/pdf_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/ActividadesPracticanteProfesional1.pdf"); ?></td>
+                <td><?php echo CHtml::link("Actividades Sugeridas para Práctica I", Yii::app()->request->baseUrl . "/documentacion/ActividadesPracticanteProfesional1.pdf"); ?></td>
             </tr>
             <tr>
-                <td><?php //echo CHtml::link("<img align='middle' title='Descarga esta vista en PDF' src='" . Yii::app()->request->baseUrl . "/images/pdf_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Reglamento_Actividad_de_Titulacion_2007_.pdf"); ?></td>
-                <td><?php //echo CHtml::link("Reglamento de Actividad de Titulación", Yii::app()->request->baseUrl . "/documentacion/Reglamento_Actividad_de_Titulacion.pdf"); ?></td>
+                <td><?php echo CHtml::link("<img align='middle' title='Descarga esta vista en PDF' src='" . Yii::app()->request->baseUrl . "/images/pdf_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/ActividadesPracticanteProfesional2.pdf"); ?></td>
+                <td><?php echo CHtml::link("Actividades Sugeridas para Práctica II", Yii::app()->request->baseUrl . "/documentacion/ActividadesPracticanteProfesional2.pdf"); ?></td>
             </tr>
             <tr>
-                <td><?php// echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/doc_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Solicitud_Inscripcion_Actividad_de_Titulacion.doc"); ?></td>
-                <td><?php// echo CHtml::link("Solicitud de Inscripción Actividad de Titulación", Yii::app()->request->baseUrl . "/documentacion/Solicitud_Inscripcion_Actividad_de_Titulacion.doc"); ?></td>
+                <td><?php echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/doc_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Bitacora.doc"); ?></td>
+                <td><?php echo CHtml::link("Bitácora de Actividades", Yii::app()->request->baseUrl . "/documentacion/Bitacora.doc"); ?></td>
             </tr>
             <tr>
-                <td><?php //echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/doc_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Formato_CD_Ing_Civil_Informatica.doc"); ?></td>
-                <td><?php //echo CHtml::link("Formato del DVD", Yii::app()->request->baseUrl . "/documentacion/Formato_CD_Ing_Civil_Informatica.doc"); ?></td>
+                <td><?php echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/doc_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Formulario_Inscripcion_Practica.doc"); ?></td>
+                <td><?php echo CHtml::link("Formulario de Inscripción", Yii::app()->request->baseUrl . "/documentacion/Formulario_Inscripcion_Practica.doc"); ?></td>
             </tr>
             <tr>
-                <td><?php //echo CHtml::link("<img align='middle' title='Descarga esta vista en DOC' src='" . Yii::app()->request->baseUrl . "/images/pdf_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Contenido_del_CD.pdf"); ?></td>
-                <td><?php //echo CHtml::link("Contenido del DVD", Yii::app()->request->baseUrl . "/documentacion/Contenido_del_CD.pdf"); ?></td>
+                <td><?php echo CHtml::link("<img align='middle' title='Descarga esta vista en PDF' src='" . Yii::app()->request->baseUrl . "/images/pdf_icon.png'/>", Yii::app()->request->baseUrl . "/documentacion/Reglamento-Practica-Profesional- ICI-IECI.pdf"); ?></td>
+                <td><?php echo CHtml::link("Reglamento de Práctica Profesional", Yii::app()->request->baseUrl . "/documentacion/Reglamento-Practica-Profesional- ICI-IECI.pdf"); ?></td>
             </tr>
         </table>
     </div>
 </div>
--->
+
 <h2>Noticias</h2>
 <?php
 $noticias = array();

@@ -32,7 +32,18 @@ $this->widget('zii.widgets.grid.CGridView', array(
             'value' => '$data->idPeriodoPracticaFk->nombre_mas_estado',
             'filter' => CHtml::listData(PeriodoPractica::model()->findAll('id_campus_fk=:idc', array(':idc' => Yii::app()->user->getState('campus'))), 'id_periodo_practica', 'nombre_mas_estado'),
         ),
-        array('name'=>'cantidad','filter'=>false),
+        array('name' => 'remunerado',
+            'filter' => CHtml::activeDropDownList($model, 'remunerado', array(
+                '' => '',
+                '1' => 'SI',
+                '2' => 'NO',
+            )),
+            'value' => '$data->remunerado==1?\'SI\':\'NO\''),
+        array('name' => 'filtro_ciudad',
+            'filter' => CHtml::listData(Comuna::model()->findAll('1=1 order by COMUNA_NOMBRE ASC'), 'COMUNA_ID', 'COMUNA_NOMBRE'),
+            'value' => '$data->idEmpresaFk->idCuidadFk->COMUNA_NOMBRE',
+        ),
+        array('name' => 'cantidad', 'filter' => false),
         //'remunerado',
         //'detalle_remuneracion',
         //'funcion_a_cumplir',
@@ -60,7 +71,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                     // 'url' => "CHtml::normalizeUrl(array('contactoEmpresa/update', 'id'=>\$data->id_contacto_empresa))",
                     'title' => "Modificar",
                     'imageUrl' => Yii::app()->request->baseUrl . '/images/edit_icon.png',
-                    //'options' => array('id' => 'inline')
+                //'options' => array('id' => 'inline')
                 // 'options' => array('class'=>'pdf'),
                 ),
                 'delete' => array(

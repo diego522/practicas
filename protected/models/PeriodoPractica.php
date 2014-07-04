@@ -86,7 +86,7 @@ class PeriodoPractica extends CActiveRecord {
             'fecha_cierre' => 'Fecha de Cierre',
             'id_campus_fk' => 'Campus',
             'id_estado_fk' => 'Estado',
-            'id_tipo_practica_fk' => 'Tipo de práctica',
+            'id_tipo_practica_fk' => 'Tipo de Práctica',
             'fecha_entrega_formulario_prac' => 'Fecha de Entrega del Formulario',
         );
     }
